@@ -16,7 +16,7 @@ ROOT=Path(__file__).resolve().parents[2]
 def main():
     ap=argparse.ArgumentParser(description=__doc__)
     ap.add_argument('--port',type=int,default=8890)
-    ap.add_argument('--output',type=Path,default=ROOT/'sample/car_showcase/planar_corridor_6m')
+    ap.add_argument('--output',type=Path,default=ROOT/'sample/car_showcase/planar_angular_support_6m')
     ap.add_argument('--no-browser',action='store_true')
     args=ap.parse_args(); output=args.output.resolve(); ui=ROOT/'user_app/car_showcase'
     if not (output/'manifest.json').exists(): ap.error('Generate the real experiment cache first')
@@ -25,6 +25,7 @@ def main():
     max_range=float(cfg.get('max_range',12))
     if not 0<max_range<=6: ap.error('Preview cache must use a reconstruction range of at most 6 m; rebuild it first')
     recording=manifest.get('source')
+    hybrid='hybrid' in manifest.get('variants',[])
     lock=threading.Lock(); job={'state':'idle'}
     def run(command,path):
         try:
@@ -54,8 +55,11 @@ def main():
                 length=int(self.headers.get('Content-Length','0'))
                 if not 0<length<=1024: raise ValueError('Invalid body size')
                 data=json.loads(self.rfile.read(length)); allowed={'time','plane_mm','connection_scale','hole_radius','max_angle'}
-                if set(data)!=allowed: raise ValueError('Expected fixed parameter keys')
-                ranges={'time':(.2,15),'plane_mm':(5,40),'connection_scale':(1.5,4),'hole_radius':(.02,.4),'max_angle':(.8,3.2)}
+                if not allowed.issubset(data) or set(data)-allowed-{'angular_support','support_angle'}: raise ValueError('Expected fixed parameter keys')
+                data.setdefault('angular_support',bool(cfg.get('angular_gap_support',False)))
+                data.setdefault('support_angle',float(cfg.get('support_angle_deg',2.4)))
+                if not isinstance(data['angular_support'],bool):raise ValueError('angular_support must be boolean')
+                ranges={'time':(.2,15),'plane_mm':(5,40),'connection_scale':(1.5,4),'hole_radius':(.02,.4),'max_angle':(.8,3.2),'support_angle':(.1,3.2)}
                 import math
                 for key,(lo,hi) in ranges.items():
                     data[key]=float(data[key])
@@ -66,6 +70,9 @@ def main():
                 if job['state']=='running':self.answer({'error':'Rebuild already running'},409);return
                 path=output/'jobs'/uuid.uuid4().hex
                 command=[sys.executable,str(ROOT/'tools/run_build.py'),'--name','Python_planar_recompute','--kind','python','--estimate','45','--log',str(path/'experiment.log'),'--',sys.executable,'-m','web_server.car_showcase.build_planar_experiment','--recording',recording,'--out',str(path),'--times',str(data['time']),'--plane-mm',str(data['plane_mm']),'--connection-scale',str(data['connection_scale']),'--hole-radius',str(data['hole_radius']),'--max-angle',str(data['max_angle']),'--max-range',str(max_range),'--skip-holdout']
+                if hybrid:command.append('--hybrid')
+                command.extend(['--support-angle',str(data['support_angle'])])
+                if not data['angular_support']:command.append('--no-angular-support')
                 job.clear();job.update(state='running',parameters=data)
                 threading.Thread(target=run,args=(command,path),daemon=True).start();self.answer(dict(job),202)
     server=ThreadingHTTPServer(('127.0.0.1',args.port),Handler)

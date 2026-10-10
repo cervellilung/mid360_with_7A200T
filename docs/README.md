@@ -20,7 +20,7 @@
 
 ## 整理规则
 
-以后把普通更新写入对应主题文档，不再每次新建日期文件；进度仍写总交接，持续问题写LONG_RUNNING_ISSUES。源码、约束、录制和构建产物本次未移动。Markdown文档统一放在docs，本文件作为文档索引入口。
+以后把普通更新写入对应主题文档，不再每次新建日期文件；进度仍写总交接，持续问题写LONG_RUNNING_ISSUES。源码、约束、录制和构建产物本次未移动。全部Markdown仍放docs，根README只作入口。
 
 历史正文保留原日期、结论及证据；相同正文只保留一份，不把历史未完成状态或旧板卡方案冒充当前状态。原Markdown压缩备份见根README。
 
@@ -173,4 +173,3 @@
 - [旧项目/2026-10-01_目录整理/fpga_ac880/sensor_perception_ar/LONG_RUNNING_ISSUES.md](旧项目/2026-10-01_目录整理/fpga_ac880/sensor_perception_ar/LONG_RUNNING_ISSUES.md)
 - [旧项目/fpga_ac880/sensor_capture_ps/LONG_RUNNING_ISSUES.md](旧项目/fpga_ac880/sensor_capture_ps/LONG_RUNNING_ISSUES.md)
 - [vivado_project/source_snapshot/mid360_pc_fpga/fpga_ac880/sensor_capture_linux/LONG_RUNNING_ISSUES.md](vivado_project/source_snapshot/mid360_pc_fpga/fpga_ac880/sensor_capture_linux/LONG_RUNNING_ISSUES.md)
-

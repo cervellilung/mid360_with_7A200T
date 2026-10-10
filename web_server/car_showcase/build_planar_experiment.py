@@ -14,6 +14,7 @@ from .planar_mesh import PlanarConfig, make_planar_mesh, make_range_baseline, va
 from .surface_distance import surface_distances, summary
 from .assets import write_binary
 from .mesh import make_mesh
+from .hybrid_mesh import make_hybrid_mesh
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -92,9 +93,41 @@ def save_variant(out, name, mesh):
     # Per-face data; neither inferred nor plane labels are measurement flags.
     group.astype('<i2').tofile(out/(name+'.groups'))
     inferred.astype('u1').tofile(out/(name+'.inferred'))
-    return dict(mesh=name+'.m3mesh', groups=name+'.groups',inferred=name+'.inferred',
+    extras = {}
+    for attribute, suffix, dtype in [('face_normals','face_normals','<f4'),('face_region','regions','u1')]:
+        if hasattr(mesh, attribute):
+            getattr(mesh,attribute).astype(dtype).tofile(out/(name+'.'+suffix))
+            extras[suffix] = name+'.'+suffix
+    return dict(mesh=name+'.m3mesh', groups=name+'.groups',inferred=name+'.inferred',**extras,
         stats=dict(vertices=len(mesh.vertices),triangles=len(mesh.triangles),build_ms=mesh.build_ms,
-                   p95_shift_mm=mesh.p95_shift_mm,diagnostics=getattr(mesh,'planar_report',getattr(mesh,'diagnostics',{}))))
+                   p95_shift_mm=mesh.p95_shift_mm,diagnostics=getattr(mesh,'hybrid_report',getattr(mesh,'planar_report',getattr(mesh,'diagnostics',{})))))
+
+
+def compare_coverage(base, candidate, planes):
+    """Samples of the BASELINE surface, not ground-truth physical hole area."""
+    triangle = base.vertices[base.triangles].astype(float)
+    area = np.linalg.norm(np.cross(triangle[:,1]-triangle[:,0],triangle[:,2]-triangle[:,0]),axis=1)/2
+    reports = []
+    for group, plane in enumerate(planes):
+        normal, offset = plane['normal'],plane['offset']
+        same = (np.abs(triangle@normal+offset)<=.020+.001*np.linalg.norm(triangle,axis=2)).all(axis=1)
+        ids = np.flatnonzero(same)
+        if not len(ids):continue
+        ii = np.random.default_rng(44).choice(ids,min(1500,len(ids)),replace=False)
+        tri = triangle[ii]
+        probes = np.concatenate([tri.mean(axis=1),(tri[:,0]+tri[:,1])/2,(tri[:,0]+tri[:,2])/2,(tri[:,1]+tri[:,2])/2])
+        distance = surface_distances(probes,candidate).reshape(4,-1)
+        lost = (distance>.05).any(axis=0)
+        reports.append(dict(group=group,normal=normal.tolist(),offset_m=float(offset),
+            baseline_faces=len(ids),samples=len(ii),max_probe_mm=float(distance.max()*1000),
+            lost_faces=int(lost.sum()),lost_area_fraction=float(area[ii][lost].sum()/max(area[ii].sum(),1e-12)),
+            region='upper_horizontal' if abs(normal[2])>.95 and plane['centre'][2]>0 else 'other'))
+    edges=np.sort(np.concatenate([candidate.triangles[:,[0,1]],candidate.triangles[:,[1,2]],candidate.triangles[:,[2,0]]]),axis=1)
+    _,counts=np.unique(edges,axis=0,return_counts=True)
+    canonical=np.sort(candidate.triangles,axis=1)
+    return dict(planes=reports,nonmanifold_edges=int((counts>2).sum()),
+        duplicate_faces=len(canonical)-len(np.unique(canonical,axis=0)),
+        policy='1500 fixed-seed baseline faces per plane, centroid plus three edge probes; 50mm coverage threshold, not physical ground truth')
 
 
 def main():
@@ -108,13 +141,19 @@ def main():
     parser.add_argument('--max-angle',type=float,default=3.2)
     parser.add_argument('--max-range',type=float,default=6.)
     parser.add_argument('--skip-holdout',action='store_true')
+    parser.add_argument('--hybrid',action='store_true',help='Add bounded angular/planar fusion; keep all three references')
+    parser.add_argument('--support-angle',type=float,default=2.4,help='Angular enclosing-support radius, degrees')
+    parser.add_argument('--no-angular-support',action='store_true',help='Reproduce previous metre-bounded planar recovery')
     args = parser.parse_args()
     ends = sorted(set(float(x) for x in args.times.split(',')))
     if not ends or not all(.2 <= x <= 15 for x in ends): parser.error('times must be in [.2,15]')
     if not (5<=args.plane_mm<=40 and 1.5<=args.connection_scale<=4 and .02<=args.hole_radius<=.4 and .8<=args.max_angle<=3.2): parser.error('Parameters outside bounded experimental range')
     if not np.isfinite(args.max_range) or not .3<args.max_range<=6:
         parser.error('max-range must be greater than .3 and at most 6 m')
-    cfg = PlanarConfig(plane_m=args.plane_mm/1000,connection_scale=args.connection_scale,hole_radius_m=args.hole_radius,max_angle_deg=args.max_angle,max_range=args.max_range)
+    if not np.isfinite(args.support_angle) or not .1<=args.support_angle<=3.2:
+        parser.error('support-angle must be in [.1,3.2] degrees')
+    cfg = PlanarConfig(plane_m=args.plane_mm/1000,connection_scale=args.connection_scale,hole_radius_m=args.hole_radius,max_angle_deg=args.max_angle,max_range=args.max_range,
+        angular_gap_support=not args.no_angular_support,support_angle_deg=args.support_angle)
     args.out.mkdir(parents=True,exist_ok=True)
     windows, provenance = read_windows(args.recording,ends)
     entries = []; started = time.perf_counter()
@@ -127,6 +166,8 @@ def main():
         reconstruction_ms = (time.perf_counter()-reconstruct_started)*1000
         legacy = make_mesh(cloud[ids], min_range=cfg.min_range, max_range=cfg.max_range)
         variants = [('angular',base),('baseline',legacy),('planar',candidate)]
+        hybrid = make_hybrid_mesh(cloud,cfg) if args.hybrid else None
+        if hybrid is not None: variants.append(('hybrid',hybrid))
         filtered_sha256 = hashlib.sha256(cloud[ids].tobytes()).hexdigest()
         stem = f't{window["t"]:05.2f}'
         pair = {name:save_variant(args.out,stem+'_'+name,mesh) for name,mesh in variants}
@@ -156,18 +197,25 @@ def main():
                 training_sha256=hashlib.sha256(training_mm.tobytes()).hexdigest(),
                 policy='Withheld points never enter fitting, Delaunay, support or ray gates',
                 angular=summary(surface_distances(test,train_base)),baseline=summary(surface_distances(test,train_legacy)),planar=summary(surface_distances(test,train_candidate)))
+            if args.hybrid:
+                train_hybrid=make_hybrid_mesh(training_mm,cfg)
+                holdout['hybrid']=summary(surface_distances(test,train_hybrid))
         gap = supported_gap_area(p,candidate.planes,[base,candidate])
         entry = dict(**window,window_ms=200,points=stem+'.points',rejected=stem+'.rejected',audit_file=stem+'.audit.npz',
             variants=pair,audit=audit,residual=residual,holdout=holdout,supported_gap_area=gap,
             filtered_input_sha256=filtered_sha256,max_range=cfg.max_range,
             reconstruction_pair_ms=reconstruction_ms,range_removed=len(cloud)-len(p))
+        if hybrid is not None:
+            entry['hybrid_coverage']=compare_coverage(base,hybrid,hybrid.planes)
+            entry['hybrid_reconstruction_ms']=hybrid.build_ms
+            print(f'hybrid t={window["t"]:g}s faces={len(hybrid.triangles)} complete_ms={hybrid.build_ms:.0f} retained={hybrid.hybrid_report["retained_source_faces"]} corners={hybrid.hybrid_report["corners"]["split_source_faces"]}',flush=True)
         entries.append(entry)
         print(f't={window["t"]:g}s points={len(p)} faces_angular_legacy_planar={len(base.triangles)}/{len(legacy.triangles)}/{len(candidate.triangles)} build_ms={base.build_ms:.0f}/{legacy.build_ms:.0f}/{candidate.build_ms:.0f} planar_total_ms={reconstruction_ms:.0f}',flush=True)
-    report = dict(algorithm='planar_support_experiment_v1',config=asdict(cfg),source=str(args.recording),
+    report = dict(algorithm='planar_support_experiment_v2',config=asdict(cfg),source=str(args.recording),
         source_sha256=hashlib.sha256((args.recording/'events.bin').read_bytes()).hexdigest(),
         provenance=provenance,window_ms=200,frames=entries,build_s=time.perf_counter()-started,
-        variants=['angular','baseline','planar'],
-        presentation=dict(default_variant='planar',default_comparison=True,max_range=cfg.max_range,
+        variants=['angular','baseline','planar']+(['hybrid'] if args.hybrid else []),
+        presentation=dict(default_variant='hybrid' if args.hybrid else 'planar',default_comparison=True,max_range=cfg.max_range,
             label=f'仅重建{cfg.max_range:g} m内观测表面'),
         evaluation='Finite triangle distance; full-input residual sample 2048, disjoint 20% holdout',
         limitations=['No accumulated map, pose, SLAM or dynamic segmentation',

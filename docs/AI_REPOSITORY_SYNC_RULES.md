@@ -5,7 +5,8 @@
 
 # AI 仓库协作与同步规则
 
-> **本仓库同步范围（2026-10-10）：** 本仓库用于 7A200T 项目协作。当前只包含 `docs/`、`web_server/`、`vivado_project/acx750/`、`vivado_project/acx750_full/`、`vivado_project/acx750_stereo_basic/`，以及前两个工程所引用的 `vivado_project/source_snapshot/fpga_acx750/` 与 `fpga_acx750_full/` RTL/约束/仿真依赖。工作区其他目录、AC880、历史 bring-up、旧项目、生成物与数据录制不在本仓库同步范围内。
+> **本仓库同步范围（2026-10-10）：** 本仓库仅包含 docs、web_server、Vivado acx750/acx750_full/acx750_stereo_basic 三个工程及其必要 RTL/约束/仿真依赖。AC880、历史 bring-up、旧项目、生成物、缓存和录制数据不在本仓库同步范围内。
+
 
 本文是 AI 助手在本项目读取、修改、提交和同步文件时的操作约定。开始工作前先读本文、`docs/README.md` 与目标 Vivado 工程 README；遇到冲突时，以用户在当前对话中的最新明确要求为准。
 
@@ -59,5 +60,4 @@
 - 静态录制预览、模拟数据、PC 测试或单模块综合，都不能证明实时板级系统已完成。
 - 项目主线和当前硬件选择以根目录最新方案/总交接文档及 `fpga_ac880/sensor_capture_linux/` 文档为准；发现旧文档冲突时先标明版本与差异，不静默把旧结论覆盖成当前事实。
 - 远程板卡操作按用户要求使用 Windows PowerShell 自带 `ssh`/`scp`；禁止 MCP SSH。串口只用于读取启动日志，不作为交互控制通道。
-
 

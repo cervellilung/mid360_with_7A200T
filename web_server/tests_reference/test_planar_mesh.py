@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
 from scipy.spatial import cKDTree
-from web_server.car_showcase.planar_mesh import make_planar_mesh, make_range_baseline, valid_points, PlanarConfig, ring_supported, ray_contradictions
+from web_server.car_showcase.planar_mesh import make_planar_mesh, make_range_baseline, valid_points, PlanarConfig, ring_supported, ray_contradictions, bounded_gap_support, angular_enclosed_support
 from web_server.car_showcase.adaptive_mesh import make_angular_mesh
 from web_server.car_showcase.surface_distance import triangle_distances, surface_distances
 from types import SimpleNamespace
@@ -9,6 +9,57 @@ from web_server.car_showcase.mesh import make_mesh
 
 
 class PlanarTests(unittest.TestCase):
+    def test_angular_support_is_range_invariant_and_crosses_seam(self):
+        for q in (np.array([1.,0,0]),np.array([-1.,0,0]),np.array([0.,0,1.])):
+            axis=np.eye(3)[np.argmin(abs(q))];u=np.cross(q,axis);u/=np.linalg.norm(u);v=np.cross(q,u)
+            a=np.arange(32)*2*np.pi/32
+            rays=q+np.tan(np.radians(1.))*((np.cos(a)[:,None]*u)+(np.sin(a)[:,None]*v))
+            rays/=np.linalg.norm(rays,axis=1)[:,None]
+            for distance in (1.,5.9):
+                probes=np.tile(q*distance,(1,7,1))
+                good,nearest=angular_enclosed_support(probes,rays,2.4)
+                self.assertTrue(good[0]);np.testing.assert_allclose(nearest,1.,atol=1e-10)
+            self.assertFalse(angular_enclosed_support(np.tile(q,(1,7,1)),rays,.5)[0][0])
+
+    def test_angular_support_rejects_one_sided_or_repeated_returns(self):
+        q=np.array([1.,0,0]);probes=np.tile(q,(1,7,1))
+        a=np.linspace(-.5,.5,32);rays=np.c_[np.ones(32),.01*np.cos(a),.01*np.sin(a)]
+        rays/=np.linalg.norm(rays,axis=1)[:,None]
+        self.assertFalse(angular_enclosed_support(probes,rays,2.4)[0][0])
+        rays=np.tile([1.,.01,0],(100,1));rays/=np.linalg.norm(rays,axis=1)[:,None]
+        self.assertFalse(angular_enclosed_support(probes,rays,2.4)[0][0])
+
+    def test_oblique_sparse_plane_recovers_long_edges(self):
+        from dataclasses import replace
+        az,el=np.meshgrid(np.radians(np.arange(-18,18,.3)),np.radians(np.arange(18,40,1.5)))
+        horizontal=1.8/np.tan(el)
+        p=np.c_[horizontal.ravel()*np.cos(az.ravel()),horizontal.ravel()*np.sin(az.ravel()),np.full(az.size,1.8)]*1000
+        cfg=PlanarConfig();old=make_planar_mesh(p,replace(cfg,angular_gap_support=False));new=make_planar_mesh(p,cfg)
+        self.assertTrue(set(map(tuple,old.triangles)).issubset(set(map(tuple,new.triangles))))
+        self.assertGreater(len(new.triangles),len(old.triangles))
+        self.assertGreater(max(s['recovered_max_edge_m'] for s in new.planar_report['planes']),.4)
+        centre=new.vertices[new.triangles].mean(axis=1)
+        self.assertTrue((np.linalg.norm(centre[:,:2],axis=1)>2.).all())
+
+    def test_bounded_gap_cannot_extend_open_edge(self):
+        uv=np.c_[np.zeros(30),np.linspace(-.2,.2,30)]
+        probes=np.full((1,7,2),[.04,0.])
+        self.assertFalse(bounded_gap_support(probes,cKDTree(uv),uv,.2)[0])
+
+    def test_bounded_gap_enclosed_and_radius_limited(self):
+        a=np.arange(24)*2*np.pi/24
+        uv=np.c_[np.cos(a),np.sin(a)]*.1
+        probes=np.zeros((1,7,2))
+        self.assertTrue(bounded_gap_support(probes,cKDTree(uv),uv,.2)[0])
+        self.assertFalse(bounded_gap_support(probes,cKDTree(uv),uv,.08)[0])
+
+    def test_recovery_keeps_original_uv_faces(self):
+        from dataclasses import replace
+        cfg=PlanarConfig();p=self.wall()
+        a=make_planar_mesh(p,replace(cfg,recover_supported_gaps=False));b=make_planar_mesh(p,cfg)
+        self.assertTrue(set(map(tuple,a.triangles)).issubset(set(map(tuple,b.triangles))))
+        self.assertEqual(len(b.triangles),len(np.unique(np.sort(b.triangles,axis=1),axis=0)))
+
     def wall(self):
         y,z = np.meshgrid(np.arange(-1,1.001,.05),np.arange(-.6,.601,.05))
         return np.c_[np.full(y.size,3000),y.ravel()*1000,z.ravel()*1000].astype(np.int32)

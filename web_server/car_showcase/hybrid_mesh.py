@@ -159,7 +159,8 @@ def _crease_patches(raw, display, faces, planes, points, ray_tree, rays, radii, 
             normals = np.cross(tri[:, 1]-tri[:, 0], tri[:, 2]-tri[:, 0]); areas = np.linalg.norm(normals, axis=1)
             probes = np.array([old.mean(axis=0), (old[0]+old[1])/2, (old[1]+old[2])/2, (old[0]+old[2])/2])
             bound = cfg.plane_m+cfg.plane_per_m*np.linalg.norm(probes, axis=1)
-            if ((areas <= 1e-9).any() or not .75*old_area <= areas.sum() <= 1.30*old_area
+            # A supported 90-degree crease unfolds a chamfer by sqrt(2).
+            if ((areas <= 1e-9).any() or not .75*old_area <= areas.sum() <= 1.60*old_area
                     or (normals@old_n < .5*areas*old_area).any()
                     or any(triangle_distances(q, tri).min() > b+1e-6 for q, b in zip(probes, bound))): continue
             candidates[int(fi)] = (pieces, crossings); report['proposed_faces'] += 1

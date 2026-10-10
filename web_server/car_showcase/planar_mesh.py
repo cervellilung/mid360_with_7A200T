@@ -25,6 +25,9 @@ class PlanarConfig:
     min_plane_points: int = 600
     max_planes: int = 8
     seed: int = 77
+    recover_supported_gaps: bool = True
+    angular_gap_support: bool = True
+    support_angle_deg: float = 2.4
 
 
 def valid_points(points_mm, config=None):
@@ -116,8 +119,65 @@ def ray_contradictions(probes, normal, offset, rays_tree, rays, radii):
     return contradict.sum(axis=1) >= 2
 
 
+def bounded_gap_support(probes, tree, uv, radius):
+    """All seven probes need nearby bilateral/enclosing measured support.
+
+    A scalar nearest-neighbour spacing can underestimate the sparse direction
+    of an anisotropically sampled plane. This alternative never extends the
+    convex observation boundary and does not remove the angular/ray gates.
+    """
+    result = np.ones(len(probes), bool)
+    for i, triangle in enumerate(probes):
+        for q in triangle:
+            ids = tree.query_ball_point(q, radius)
+            delta = uv[ids]-q
+            delta = delta[np.linalg.norm(delta, axis=1) > .003]
+            if len(delta) < 6:
+                result[i] = False; break
+            angles = np.sort(np.arctan2(delta[:, 1], delta[:, 0]))
+            if np.max(np.diff(np.r_[angles, angles[0]+2*np.pi])) >= np.radians(155):
+                result[i] = False; break
+    return result
+
+
+def angular_enclosed_support(probes, support_rays, support_angle_deg):
+    """Enclosing measured support on the unit sphere, with no metre cutoff.
+
+    Projecting a probe on the fitted plane and then onto a unit ray makes
+    this test depend on angular sampling. The corresponding physical patch
+    grows with range AND stretches with oblique incidence. A tangent chart
+    around EACH probe avoids azimuth seams and pole singularities.
+    """
+    flat = np.asarray(probes, float).reshape(-1, 3)
+    q = flat/np.maximum(np.linalg.norm(flat, axis=1)[:, None], 1e-12)
+    tree = cKDTree(support_rays)
+    radius = 2*np.sin(np.radians(support_angle_deg)/2)
+    nearby = tree.query_ball_point(q, radius)
+    good = np.zeros(len(q), bool)
+    nearest = 2*np.arcsin(np.clip(tree.query(q)[0]/2, 0, 1))
+    for i, ids in enumerate(nearby):
+        if len(ids) < 6: continue
+        axis = np.eye(3)[np.argmin(np.abs(q[i]))]
+        u = np.cross(q[i], axis); u /= np.linalg.norm(u)
+        basis = np.array([u, np.cross(q[i], u)])
+        selected = support_rays[ids]
+        xy = (selected@basis.T)/np.maximum((selected@q[i])[:, None], 1e-9)
+        # Repeated/clumped returns cannot count as six independent supports.
+        xy = xy[np.linalg.norm(xy, axis=1) > np.tan(np.radians(.03))]
+        if len(xy) < 6: continue
+        _, unique = np.unique(np.floor(xy/np.tan(np.radians(.10))).astype(np.int64),
+                              axis=0, return_index=True)
+        xy = xy[unique]
+        if len(xy) < 6: continue
+        angles = np.sort(np.arctan2(xy[:, 1], xy[:, 0]))
+        good[i] = np.max(np.diff(np.r_[angles, angles[0]+2*np.pi])) < np.radians(155)
+    return good.reshape(np.asarray(probes).shape[:-1]).all(axis=1), np.degrees(nearest).reshape(-1, 7)
+
+
 def make_planar_mesh(points_mm, config=None, *, base=None):
     cfg = config or PlanarConfig(); started = time.perf_counter()
+    if not .1 <= cfg.support_angle_deg <= 5 or not .1 <= cfg.max_angle_deg <= 5:
+        raise ValueError('Invalid planar angular support configuration')
     p, source_ids = valid_points(points_mm, cfg)
     if base is None:
         base = make_range_baseline(points_mm, cfg)
@@ -166,6 +226,17 @@ def make_planar_mesh(points_mm, config=None, *, base=None):
         tri_rays = rays[ids][triangles]
         theta = np.arccos(np.clip(np.einsum('nki,nki->nk', tri_rays[:, (0, 0, 1)], tri_rays[:, (1, 2, 2)]), -1, 1))
         angle_ok = (theta <= np.radians(cfg.max_angle_deg)+1e-7).all(axis=1)
+        angular_connected = connected
+        if cfg.angular_gap_support:
+            # Build a separate angular connectivity graph for recovery; do not
+            # change the original metre-gated faces or their components.
+            angular_strong = (theta <= np.radians(cfg.max_angle_deg)).ravel()
+            angular_graph = coo_matrix((np.ones(angular_strong.sum()),
+                (left[angular_strong], right[angular_strong])), shape=(len(uv),len(uv)))
+            _, angular_components = connected_components(angular_graph, directed=False)
+            angular_size = np.bincount(angular_components)
+            angular_connected = (angular_components[triangles] == angular_components[triangles[:,:1]]).all(axis=1)
+            angular_connected &= angular_size[angular_components[triangles[:,0]]] >= 30
         area = np.abs(np.cross(tri_uv[:, 1]-tri_uv[:, 0], tri_uv[:, 2]-tri_uv[:, 0]))/2
         shape_ok = area > 1e-7
         probes_weights = np.array([[1/3]*3, [.6,.2,.2], [.2,.6,.2], [.2,.2,.6], [.5,.5,0], [.5,0,.5], [0,.5,.5]])
@@ -187,6 +258,43 @@ def make_planar_mesh(points_mm, config=None, *, base=None):
         if len(eligible):
             ray_bad[eligible] = ray_contradictions(projected_probes[eligible].reshape(-1, 3), n, d, ray_tree, rays, radii).reshape(-1, 7).any(axis=1)
         accept = edge_ok & angle_ok & shape_ok & support_ok & ~ray_bad & connected
+        original_accept = accept.copy()
+        # Only revisit local spacing/support refusals in the same UV
+        # triangulation. No overlay mesh, long bridges or whole-plane hull.
+        recovery_candidates = np.flatnonzero(~accept & angle_ok & shape_ok & connected
+            & ~ray_bad & (edge.max(axis=1) <= 2*cfg.hole_radius_m)
+            & (distances.max(axis=1) <= cfg.hole_radius_m)
+            & (area/np.maximum(edge.max(axis=1)**2, 1e-12) >= .03))
+        recovered = np.zeros(len(triangles), bool)
+        recovery_nearest_deg = np.empty((0,7))
+        if cfg.recover_supported_gaps and len(recovery_candidates):
+            enclosed_all = bounded_gap_support(probe_uv[recovery_candidates], tree, uv, cfg.hole_radius_m)
+            supported_ids = recovery_candidates[enclosed_all]
+            if len(supported_ids):
+                conflicts = ray_contradictions(projected_probes[supported_ids].reshape(-1,3),
+                    n,d,ray_tree,rays,radii).reshape(-1,7).any(axis=1)
+                recovered[supported_ids[~conflicts]] = True
+            accept |= recovered
+        metre_recovered = recovered.copy()
+        angular_recovered = np.zeros(len(triangles), bool)
+        angular_area = np.linalg.norm(np.cross(tri_rays[:,1]-tri_rays[:,0],
+            tri_rays[:,2]-tri_rays[:,0]),axis=1)/2
+        angular_edge = np.linalg.norm(tri_rays[:,(0,0,1)]-tri_rays[:,(1,2,2)],axis=2)
+        # A good angular triangle can be stretched on a grazing plane. Reject
+        # angular slivers, not valid oblique patches merely elongated in metres.
+        angular_shape_ok = angular_area/np.maximum(angular_edge.max(axis=1)**2,1e-12) >= .03
+        angular_candidates = np.flatnonzero(~accept & angle_ok & shape_ok & angular_connected
+            & ~ray_bad & angular_shape_ok)
+        if cfg.recover_supported_gaps and cfg.angular_gap_support and len(angular_candidates):
+            surrounded, recovery_nearest_deg = angular_enclosed_support(projected_probes[angular_candidates],
+                rays[plane['ids']], min(cfg.support_angle_deg, cfg.max_angle_deg))
+            supported_ids = angular_candidates[surrounded]
+            if len(supported_ids):
+                conflicts = ray_contradictions(projected_probes[supported_ids].reshape(-1,3),
+                    n,d,ray_tree,rays,radii).reshape(-1,7).any(axis=1)
+                angular_recovered[supported_ids[~conflicts]] = True
+            recovered |= angular_recovered
+            accept |= angular_recovered
         display = p[ids]-(p[ids]@n+d)[:, None]*n
         # A plane projection must not move a measured boundary point outside ROI.
         # Keep its original measured coordinate rather than inventing a clip vertex.
@@ -195,9 +303,17 @@ def make_planar_mesh(points_mm, config=None, *, base=None):
         display[outside] = p[ids][outside]
         vertices.append(display.astype(np.float32)); raw_vertices.append(p[ids].astype(np.float32))
         faces.append((triangles[accept]+offset).astype(np.uint32)); offset += len(ids)
-        groups.append(np.full(accept.sum(), group, np.int16)); inferred.append((~measured[accept]).astype(np.uint8))
+        groups.append(np.full(accept.sum(), group, np.int16)); inferred.append((~measured[accept] | recovered[accept]).astype(np.uint8))
         summaries.append(dict(group=group, raw_support=int(len(plane['ids'])), vertices=len(ids),
-            candidates=len(triangles), accepted=int(accept.sum()), inferred=int((accept & ~measured).sum()),
+            candidates=len(triangles), accepted=int(accept.sum()), inferred=int((accept & (~measured | recovered)).sum()),
+            original_accepted=int(original_accept.sum()), recovered=int(recovered.sum()),
+            recovery_candidates=len(recovery_candidates),
+            metre_recovered=int(metre_recovered.sum()), angular_recovered=int(angular_recovered.sum()),
+            angular_candidates=len(angular_candidates),
+            angular_support_rejected=int(len(angular_candidates)-(surrounded.sum() if cfg.recover_supported_gaps and cfg.angular_gap_support and len(angular_candidates) else 0)),
+            recovered_max_edge_m=float(edge[angular_recovered].max(initial=0)),
+            recovered_max_probe_distance_m=float(distances[angular_recovered].max(initial=0)),
+            angular_support_nearest_p95_deg=float(np.percentile(recovery_nearest_deg,95)) if recovery_nearest_deg.size else 0,
             reject_angle=int((~angle_ok).sum()), reject_spacing=int((~edge_ok).sum()),
             reject_support=int((~support_ok).sum()), reject_ray=int(ray_bad.sum()), reject_degenerate=int((~shape_ok).sum()),
             reject_component=int((~connected).sum()), components=int(len(component_size)),
