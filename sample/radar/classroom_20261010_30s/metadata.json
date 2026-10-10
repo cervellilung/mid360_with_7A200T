@@ -1,0 +1,9 @@
+{
+  "format_version": 1,
+  "source": "direct MID360",
+  "lidar_ip": "192.168.1.20",
+  "scene": "empty classroom; sensor pose/motion unverified",
+  "duration_s": 30.0,
+  "algorithm_run": false,
+  "duration_origin": "first matching UDP packet"
+}

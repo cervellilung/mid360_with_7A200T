@@ -1,0 +1,8 @@
+{
+  "valid_packets": 62488,
+  "invalid_packets": 0,
+  "sequence_discontinuities": 0,
+  "point_records": 5998848,
+  "packets_with_crc": 0,
+  "errors": {}
+}

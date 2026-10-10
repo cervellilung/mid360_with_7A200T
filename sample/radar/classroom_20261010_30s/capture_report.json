@@ -1,0 +1,17 @@
+{
+  "status": "recorded",
+  "packets": 62488,
+  "reread_records": 62488,
+  "peers": {
+    "192.168.1.20:56300": 62488
+  },
+  "payload_bytes": 86233440,
+  "bytes": 87045792,
+  "requested_duration_s": 30.0,
+  "first_to_last_packet_s": 29.984999999999673,
+  "receive_wait_s": 0.0,
+  "sha256": "e21fc95d8236a6a202df4fb5e314c3db9d9fa758cb5fac91630b261b736be3c4",
+  "algorithm_run": false,
+  "protocol_validation": "packet_validation.json: structure and sequence checked; source CRC fields absent/zero",
+  "interrupted": false
+}
