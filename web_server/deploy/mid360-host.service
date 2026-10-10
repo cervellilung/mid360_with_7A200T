@@ -1,0 +1,25 @@
+[Unit]
+Description=MID360 ACX750 UDP 遥测接收与本地网页
+Documentation=file:///opt/mid360_pc_fpga/docs/web_server/README.md
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=mid360
+Group=mid360
+WorkingDirectory=/opt/mid360_pc_fpga
+# host.env 提供 MID360_START 等变量；缺失时服务会启动失败，请先用 install.sh 安装
+EnvironmentFile=/etc/mid360/host.env
+ExecStart=/bin/sh ${MID360_START}
+Restart=on-failure
+RestartSec=3
+NoNewPrivileges=true
+PrivateTmp=true
+MemoryMax=2G
+# 标准输出与错误自动进入 journal：journalctl -u mid360-host -f
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

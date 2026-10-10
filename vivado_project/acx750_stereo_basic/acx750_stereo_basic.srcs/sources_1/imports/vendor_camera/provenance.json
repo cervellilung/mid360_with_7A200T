@@ -1,0 +1,38 @@
+[
+  {
+    "source": "routine\\references\\acx750_dual\\ch54_acx750_ov5640x2_udp_rgmii\\ov5640x2_udp_rgmii.srcs\\sources_1\\camera_init\\camera_init.v",
+    "file": "camera_init.v",
+    "source_sha256": "7ccf3658b70273fa40cd6977d977c6ad4176d7e1e3cc0902b3eba7b4c2809b48",
+    "source_encoding": "gb18030"
+  },
+  {
+    "source": "routine\\references\\acx750_dual\\ch54_acx750_ov5640x2_udp_rgmii\\ov5640x2_udp_rgmii.srcs\\sources_1\\camera_init\\ov5640_init_table_rgb.v",
+    "file": "ov5640_init_table_rgb.v",
+    "source_sha256": "d99c10efddbdd46edd243944c020389054256b0ac61930cc566e5534df1781a6",
+    "source_encoding": "gb18030"
+  },
+  {
+    "source": "routine\\references\\acx750_dual\\ch54_acx750_ov5640x2_udp_rgmii\\ov5640x2_udp_rgmii.srcs\\sources_1\\camera_init\\ov5640_init_table_jpeg.v",
+    "file": "ov5640_init_table_jpeg.v",
+    "source_sha256": "83e81b8ab33c3d9315f270b5b2d06185a3555dd69f57263fac8f9dfea7a9024b",
+    "source_encoding": "gb18030"
+  },
+  {
+    "source": "routine\\references\\acx750_dual\\ch54_acx750_ov5640x2_udp_rgmii\\ov5640x2_udp_rgmii.srcs\\sources_1\\camera_init\\ov7725_init_table_rgb.v",
+    "file": "ov7725_init_table_rgb.v",
+    "source_sha256": "e6e3ead3b5b3b1e95967cb37191d47944e7b16d57cd22d06158dc20e02c2c015",
+    "source_encoding": "gb18030"
+  },
+  {
+    "source": "routine\\references\\acx750_dual\\ch54_acx750_ov5640x2_udp_rgmii\\ov5640x2_udp_rgmii.srcs\\sources_1\\camera_init\\i2c_control\\i2c_control.v",
+    "file": "i2c_control.v",
+    "source_sha256": "57a56c657f0226cc931193215f1ceace4548e78e8a7a7a346358d21a9cbae3af",
+    "source_encoding": "gb18030"
+  },
+  {
+    "source": "routine\\references\\acx750_dual\\ch54_acx750_ov5640x2_udp_rgmii\\ov5640x2_udp_rgmii.srcs\\sources_1\\camera_init\\i2c_control\\i2c_bit_shift.v",
+    "file": "i2c_bit_shift.v",
+    "source_sha256": "9add0105bc671be13b35cd6e93e25427f2d6d937eb98fd58322ac0350e7dfaf8",
+    "source_encoding": "gb18030"
+  }
+]

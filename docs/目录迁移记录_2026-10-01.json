@@ -1,0 +1,666 @@
+[
+  {
+    "from": "fpga_acx750_full\\host\\cfg_client.py",
+    "to": "web_server\\cfg_client.py"
+  },
+  {
+    "from": "fpga_acx750_full\\host\\config.example.json",
+    "to": "web_server\\config.example.json"
+  },
+  {
+    "from": "fpga_acx750_full\\host\\m3tl.py",
+    "to": "web_server\\m3tl.py"
+  },
+  {
+    "from": "fpga_acx750_full\\host\\README.md",
+    "to": "web_server\\README.md"
+  },
+  {
+    "from": "fpga_acx750_full\\host\\recording.py",
+    "to": "web_server\\recording.py"
+  },
+  {
+    "from": "fpga_acx750_full\\host\\replay.py",
+    "to": "web_server\\replay.py"
+  },
+  {
+    "from": "fpga_acx750_full\\host\\server.py",
+    "to": "web_server\\server.py"
+  },
+  {
+    "from": "fpga_acx750_full\\host\\viewer.html",
+    "to": "user_app\\index.html"
+  },
+  {
+    "from": "fpga_acx750_full\\deploy",
+    "to": "web_server\\deploy"
+  },
+  {
+    "from": "fpga_acx750_full\\tests\\test_m3tl.py",
+    "to": "web_server\\tests\\test_m3tl.py"
+  },
+  {
+    "from": "fpga_ac880\\sensor_perception_ar\\host_linux",
+    "to": "web_server\\m3cp"
+  },
+  {
+    "from": "web_server\\m3cp\\viewer.html",
+    "to": "user_app\\m3cp\\index.html"
+  },
+  {
+    "from": "fpga_ac880\\sensor_perception_ar\\model.py",
+    "to": "web_server\\perception_model.py"
+  },
+  {
+    "from": "fpga_ac880\\sensor_capture_linux\\pc",
+    "to": "web_server\\raw_m3cp"
+  },
+  {
+    "from": "fpga_ac880\\sensor_capture_linux\\sessions",
+    "to": "sample\\sessions"
+  },
+  {
+    "from": "pc_perception",
+    "to": "web_server\\pc_perception"
+  },
+  {
+    "from": "pc_telemetry",
+    "to": "web_server\\pc_telemetry"
+  },
+  {
+    "from": "ar_render",
+    "to": "web_server\\ar_render"
+  },
+  {
+    "from": "car_showcase",
+    "to": "web_server\\car_showcase"
+  },
+  {
+    "from": "tests",
+    "to": "web_server\\tests_reference"
+  },
+  {
+    "from": "web_server\\car_showcase\\viewer.html",
+    "to": "user_app\\car_showcase\\viewer.html"
+  },
+  {
+    "from": "web_server\\car_showcase\\capture_video.mjs",
+    "to": "user_app\\car_showcase\\capture_video.mjs"
+  },
+  {
+    "from": "web_server\\car_showcase\\output",
+    "to": "sample\\car_showcase\\output"
+  },
+  {
+    "from": "web_server\\car_showcase\\output_smoke",
+    "to": "sample\\car_showcase\\output_smoke"
+  },
+  {
+    "from": "live_surface_twin.py",
+    "to": "web_server\\live_surface_twin.py"
+  },
+  {
+    "from": "render_ar_anaglyph.py",
+    "to": "web_server\\render_ar_anaglyph.py"
+  },
+  {
+    "from": "render_digital_twin.py",
+    "to": "web_server\\render_digital_twin.py"
+  },
+  {
+    "from": "render_surface_twin.py",
+    "to": "web_server\\render_surface_twin.py"
+  },
+  {
+    "from": "run_car_showcase.ps1",
+    "to": "web_server\\run_car_showcase.ps1"
+  },
+  {
+    "from": "run_live_surface_twin.ps1",
+    "to": "web_server\\run_live_surface_twin.ps1"
+  },
+  {
+    "from": "stop_live_surface_twin.ps1",
+    "to": "web_server\\stop_live_surface_twin.ps1"
+  },
+  {
+    "from": "run_pc.ps1",
+    "to": "web_server\\run_pc.ps1"
+  },
+  {
+    "from": "capture_mid360_5s.ps1",
+    "to": "web_server\\capture_mid360_5s.ps1"
+  },
+  {
+    "from": "requirements.txt",
+    "to": "web_server\\requirements.txt"
+  },
+  {
+    "from": "docs\\references",
+    "to": "routine\\references"
+  },
+  {
+    "from": "reports",
+    "to": "sample\\reports"
+  },
+  {
+    "from": "ar_cmp_roll000",
+    "to": "sample\\processed\\ar_cmp_roll000"
+  },
+  {
+    "from": "ar_cmp_roll180",
+    "to": "sample\\processed\\ar_cmp_roll180"
+  },
+  {
+    "from": "ar_render_out",
+    "to": "sample\\processed\\ar_render_out"
+  },
+  {
+    "from": "ar_render_strong",
+    "to": "sample\\processed\\ar_render_strong"
+  },
+  {
+    "from": "fpga_ac880\\sensor_capture_linux\\linux",
+    "to": "vivado_project\\software\\ps_linux\\capture"
+  },
+  {
+    "from": "fpga_ac880\\sensor_capture_linux\\kernel",
+    "to": "vivado_project\\software\\ps_linux\\kernel"
+  },
+  {
+    "from": "fpga_ac880\\sensor_perception_ar\\linux",
+    "to": "vivado_project\\software\\ps_linux\\perception"
+  },
+  {
+    "from": "fpga_ac880",
+    "to": "旧项目\\2026-10-01_目录整理\\fpga_ac880"
+  },
+  {
+    "from": "fpga_acx750",
+    "to": "旧项目\\2026-10-01_目录整理\\fpga_acx750"
+  },
+  {
+    "from": "fpga_acx750_full",
+    "to": "旧项目\\2026-10-01_目录整理\\fpga_acx750_full"
+  },
+  {
+    "from": "fpga_ac880.zip",
+    "to": "旧项目\\2026-10-01_目录整理\\fpga_ac880.zip"
+  },
+  {
+    "from": "NA",
+    "to": "旧项目\\2026-10-01_目录整理\\NA"
+  },
+  {
+    "from": "__pycache__",
+    "to": "旧项目\\2026-10-01_目录整理\\__pycache__"
+  },
+  {
+    "from": ".Xil",
+    "to": "旧项目\\2026-10-01_目录整理\\.Xil"
+  },
+  {
+    "from": "xsim.dir",
+    "to": "旧项目\\2026-10-01_目录整理\\xsim.dir"
+  },
+  {
+    "from": "vivado.jou",
+    "to": "vivado_project\\logs\\root_history\\vivado.jou"
+  },
+  {
+    "from": "vivado.log",
+    "to": "vivado_project\\logs\\root_history\\vivado.log"
+  },
+  {
+    "from": "vivado_26408.backup.jou",
+    "to": "vivado_project\\logs\\root_history\\vivado_26408.backup.jou"
+  },
+  {
+    "from": "vivado_26408.backup.log",
+    "to": "vivado_project\\logs\\root_history\\vivado_26408.backup.log"
+  },
+  {
+    "from": "vivado_30232.backup.jou",
+    "to": "vivado_project\\logs\\root_history\\vivado_30232.backup.jou"
+  },
+  {
+    "from": "vivado_30232.backup.log",
+    "to": "vivado_project\\logs\\root_history\\vivado_30232.backup.log"
+  },
+  {
+    "from": "vivado_34888.backup.jou",
+    "to": "vivado_project\\logs\\root_history\\vivado_34888.backup.jou"
+  },
+  {
+    "from": "vivado_34888.backup.log",
+    "to": "vivado_project\\logs\\root_history\\vivado_34888.backup.log"
+  },
+  {
+    "from": "vivado_36644.backup.jou",
+    "to": "vivado_project\\logs\\root_history\\vivado_36644.backup.jou"
+  },
+  {
+    "from": "vivado_36644.backup.log",
+    "to": "vivado_project\\logs\\root_history\\vivado_36644.backup.log"
+  },
+  {
+    "from": "vivado_5488.backup.jou",
+    "to": "vivado_project\\logs\\root_history\\vivado_5488.backup.jou"
+  },
+  {
+    "from": "vivado_5488.backup.log",
+    "to": "vivado_project\\logs\\root_history\\vivado_5488.backup.log"
+  },
+  {
+    "from": "xvlog.log",
+    "to": "vivado_project\\logs\\root_history\\xvlog.log"
+  },
+  {
+    "from": "xvlog.pb",
+    "to": "vivado_project\\logs\\root_history\\xvlog.pb"
+  },
+  {
+    "from": "vivado_project\\apply_migration_fixes.py",
+    "to": "vivado_project\\scripts\\apply_migration_fixes.py"
+  },
+  {
+    "from": "vivado_project\\create_ac880.jou",
+    "to": "vivado_project\\logs\\create_ac880.jou"
+  },
+  {
+    "from": "vivado_project\\create_ac880.log",
+    "to": "vivado_project\\logs\\create_ac880.log"
+  },
+  {
+    "from": "vivado_project\\create_ac880.tcl",
+    "to": "vivado_project\\scripts\\create_ac880.tcl"
+  },
+  {
+    "from": "vivado_project\\create_ac880_console.log",
+    "to": "vivado_project\\logs\\create_ac880_console.log"
+  },
+  {
+    "from": "vivado_project\\create_acx750.jou",
+    "to": "vivado_project\\logs\\create_acx750.jou"
+  },
+  {
+    "from": "vivado_project\\create_acx750.log",
+    "to": "vivado_project\\logs\\create_acx750.log"
+  },
+  {
+    "from": "vivado_project\\create_acx750.tcl",
+    "to": "vivado_project\\scripts\\create_acx750.tcl"
+  },
+  {
+    "from": "vivado_project\\create_acx750_console.log",
+    "to": "vivado_project\\logs\\create_acx750_console.log"
+  },
+  {
+    "from": "vivado_project\\create_acx750_full.jou",
+    "to": "vivado_project\\logs\\create_acx750_full.jou"
+  },
+  {
+    "from": "vivado_project\\create_acx750_full.log",
+    "to": "vivado_project\\logs\\create_acx750_full.log"
+  },
+  {
+    "from": "vivado_project\\create_acx750_full.tcl",
+    "to": "vivado_project\\scripts\\create_acx750_full.tcl"
+  },
+  {
+    "from": "vivado_project\\create_acx750_full_console.log",
+    "to": "vivado_project\\logs\\create_acx750_full_console.log"
+  },
+  {
+    "from": "vivado_project\\finalize_ac880.jou",
+    "to": "vivado_project\\logs\\finalize_ac880.jou"
+  },
+  {
+    "from": "vivado_project\\finalize_ac880.log",
+    "to": "vivado_project\\logs\\finalize_ac880.log"
+  },
+  {
+    "from": "vivado_project\\finalize_ac880_console.log",
+    "to": "vivado_project\\logs\\finalize_ac880_console.log"
+  },
+  {
+    "from": "vivado_project\\finalize_acx750.jou",
+    "to": "vivado_project\\logs\\finalize_acx750.jou"
+  },
+  {
+    "from": "vivado_project\\finalize_acx750.log",
+    "to": "vivado_project\\logs\\finalize_acx750.log"
+  },
+  {
+    "from": "vivado_project\\finalize_acx750_console.log",
+    "to": "vivado_project\\logs\\finalize_acx750_console.log"
+  },
+  {
+    "from": "vivado_project\\finalize_acx750_full.jou",
+    "to": "vivado_project\\logs\\finalize_acx750_full.jou"
+  },
+  {
+    "from": "vivado_project\\finalize_acx750_full.log",
+    "to": "vivado_project\\logs\\finalize_acx750_full.log"
+  },
+  {
+    "from": "vivado_project\\finalize_acx750_full_console.log",
+    "to": "vivado_project\\logs\\finalize_acx750_full_console.log"
+  },
+  {
+    "from": "vivado_project\\finalize_projects.tcl",
+    "to": "vivado_project\\scripts\\finalize_projects.tcl"
+  },
+  {
+    "from": "vivado_project\\finish_ac880.jou",
+    "to": "vivado_project\\logs\\finish_ac880.jou"
+  },
+  {
+    "from": "vivado_project\\finish_ac880.log",
+    "to": "vivado_project\\logs\\finish_ac880.log"
+  },
+  {
+    "from": "vivado_project\\finish_ac880.tcl",
+    "to": "vivado_project\\scripts\\finish_ac880.tcl"
+  },
+  {
+    "from": "vivado_project\\finish_ac880_console.log",
+    "to": "vivado_project\\logs\\finish_ac880_console.log"
+  },
+  {
+    "from": "vivado_project\\fix_clocking.tcl",
+    "to": "vivado_project\\scripts\\fix_clocking.tcl"
+  },
+  {
+    "from": "vivado_project\\fix_clock_acx750.jou",
+    "to": "vivado_project\\logs\\fix_clock_acx750.jou"
+  },
+  {
+    "from": "vivado_project\\fix_clock_acx750.log",
+    "to": "vivado_project\\logs\\fix_clock_acx750.log"
+  },
+  {
+    "from": "vivado_project\\fix_clock_acx750_48616.backup.jou",
+    "to": "vivado_project\\logs\\fix_clock_acx750_48616.backup.jou"
+  },
+  {
+    "from": "vivado_project\\fix_clock_acx750_48616.backup.log",
+    "to": "vivado_project\\logs\\fix_clock_acx750_48616.backup.log"
+  },
+  {
+    "from": "vivado_project\\fix_clock_acx750_console.log",
+    "to": "vivado_project\\logs\\fix_clock_acx750_console.log"
+  },
+  {
+    "from": "vivado_project\\fix_clock_acx750_full.jou",
+    "to": "vivado_project\\logs\\fix_clock_acx750_full.jou"
+  },
+  {
+    "from": "vivado_project\\fix_clock_acx750_full.log",
+    "to": "vivado_project\\logs\\fix_clock_acx750_full.log"
+  },
+  {
+    "from": "vivado_project\\fix_clock_acx750_full_37380.backup.jou",
+    "to": "vivado_project\\logs\\fix_clock_acx750_full_37380.backup.jou"
+  },
+  {
+    "from": "vivado_project\\fix_clock_acx750_full_37380.backup.log",
+    "to": "vivado_project\\logs\\fix_clock_acx750_full_37380.backup.log"
+  },
+  {
+    "from": "vivado_project\\fix_clock_acx750_full_console.log",
+    "to": "vivado_project\\logs\\fix_clock_acx750_full_console.log"
+  },
+  {
+    "from": "vivado_project\\implement_ac880_console.log",
+    "to": "vivado_project\\logs\\implement_ac880_console.log"
+  },
+  {
+    "from": "vivado_project\\implement_acx750.jou",
+    "to": "vivado_project\\logs\\implement_acx750.jou"
+  },
+  {
+    "from": "vivado_project\\implement_acx750.log",
+    "to": "vivado_project\\logs\\implement_acx750.log"
+  },
+  {
+    "from": "vivado_project\\implement_acx750_console.log",
+    "to": "vivado_project\\logs\\implement_acx750_console.log"
+  },
+  {
+    "from": "vivado_project\\implement_project.tcl",
+    "to": "vivado_project\\scripts\\implement_project.tcl"
+  },
+  {
+    "from": "vivado_project\\normalize_encoding.py",
+    "to": "vivado_project\\scripts\\normalize_encoding.py"
+  },
+  {
+    "from": "vivado_project\\prepare_migration.py",
+    "to": "vivado_project\\scripts\\prepare_migration.py"
+  },
+  {
+    "from": "vivado_project\\program_jtag.tcl",
+    "to": "vivado_project\\scripts\\program_jtag.tcl"
+  },
+  {
+    "from": "vivado_project\\query.jou",
+    "to": "vivado_project\\logs\\query.jou"
+  },
+  {
+    "from": "vivado_project\\query.log",
+    "to": "vivado_project\\logs\\query.log"
+  },
+  {
+    "from": "vivado_project\\query.tcl",
+    "to": "vivado_project\\scripts\\query.tcl"
+  },
+  {
+    "from": "vivado_project\\query_21256.backup.jou",
+    "to": "vivado_project\\logs\\query_21256.backup.jou"
+  },
+  {
+    "from": "vivado_project\\query_21256.backup.log",
+    "to": "vivado_project\\logs\\query_21256.backup.log"
+  },
+  {
+    "from": "vivado_project\\repair_mig.tcl",
+    "to": "vivado_project\\scripts\\repair_mig.tcl"
+  },
+  {
+    "from": "vivado_project\\repair_mig_console.log",
+    "to": "vivado_project\\logs\\repair_mig_console.log"
+  },
+  {
+    "from": "vivado_project\\repair_mig_full_console.log",
+    "to": "vivado_project\\logs\\repair_mig_full_console.log"
+  },
+  {
+    "from": "vivado_project\\reset_acx750.jou",
+    "to": "vivado_project\\logs\\reset_acx750.jou"
+  },
+  {
+    "from": "vivado_project\\reset_acx750.log",
+    "to": "vivado_project\\logs\\reset_acx750.log"
+  },
+  {
+    "from": "vivado_project\\reset_acx750_console.log",
+    "to": "vivado_project\\logs\\reset_acx750_console.log"
+  },
+  {
+    "from": "vivado_project\\reset_acx750_full.jou",
+    "to": "vivado_project\\logs\\reset_acx750_full.jou"
+  },
+  {
+    "from": "vivado_project\\reset_acx750_full.log",
+    "to": "vivado_project\\logs\\reset_acx750_full.log"
+  },
+  {
+    "from": "vivado_project\\reset_acx750_full_console.log",
+    "to": "vivado_project\\logs\\reset_acx750_full_console.log"
+  },
+  {
+    "from": "vivado_project\\reset_clock_acx750.jou",
+    "to": "vivado_project\\logs\\reset_clock_acx750.jou"
+  },
+  {
+    "from": "vivado_project\\reset_clock_acx750.log",
+    "to": "vivado_project\\logs\\reset_clock_acx750.log"
+  },
+  {
+    "from": "vivado_project\\reset_clock_acx750_console.log",
+    "to": "vivado_project\\logs\\reset_clock_acx750_console.log"
+  },
+  {
+    "from": "vivado_project\\reset_clock_acx750_full.jou",
+    "to": "vivado_project\\logs\\reset_clock_acx750_full.jou"
+  },
+  {
+    "from": "vivado_project\\reset_clock_acx750_full.log",
+    "to": "vivado_project\\logs\\reset_clock_acx750_full.log"
+  },
+  {
+    "from": "vivado_project\\reset_clock_acx750_full_console.log",
+    "to": "vivado_project\\logs\\reset_clock_acx750_full_console.log"
+  },
+  {
+    "from": "vivado_project\\reset_clock_runs.tcl",
+    "to": "vivado_project\\scripts\\reset_clock_runs.tcl"
+  },
+  {
+    "from": "vivado_project\\reset_synth.tcl",
+    "to": "vivado_project\\scripts\\reset_synth.tcl"
+  },
+  {
+    "from": "vivado_project\\run_vivado.ps1",
+    "to": "vivado_project\\scripts\\run_vivado.ps1"
+  },
+  {
+    "from": "vivado_project\\validate_ac880_console.log",
+    "to": "vivado_project\\logs\\validate_ac880_console.log"
+  },
+  {
+    "from": "vivado_project\\validate_acx750.jou",
+    "to": "vivado_project\\logs\\validate_acx750.jou"
+  },
+  {
+    "from": "vivado_project\\validate_acx750.log",
+    "to": "vivado_project\\logs\\validate_acx750.log"
+  },
+  {
+    "from": "vivado_project\\validate_acx750_38956.backup.jou",
+    "to": "vivado_project\\logs\\validate_acx750_38956.backup.jou"
+  },
+  {
+    "from": "vivado_project\\validate_acx750_38956.backup.log",
+    "to": "vivado_project\\logs\\validate_acx750_38956.backup.log"
+  },
+  {
+    "from": "vivado_project\\validate_acx750_48628.backup.jou",
+    "to": "vivado_project\\logs\\validate_acx750_48628.backup.jou"
+  },
+  {
+    "from": "vivado_project\\validate_acx750_48628.backup.log",
+    "to": "vivado_project\\logs\\validate_acx750_48628.backup.log"
+  },
+  {
+    "from": "vivado_project\\validate_acx750_console.log",
+    "to": "vivado_project\\logs\\validate_acx750_console.log"
+  },
+  {
+    "from": "vivado_project\\validate_acx750_full.jou",
+    "to": "vivado_project\\logs\\validate_acx750_full.jou"
+  },
+  {
+    "from": "vivado_project\\validate_acx750_full.log",
+    "to": "vivado_project\\logs\\validate_acx750_full.log"
+  },
+  {
+    "from": "vivado_project\\validate_acx750_full_41520.backup.jou",
+    "to": "vivado_project\\logs\\validate_acx750_full_41520.backup.jou"
+  },
+  {
+    "from": "vivado_project\\validate_acx750_full_41520.backup.log",
+    "to": "vivado_project\\logs\\validate_acx750_full_41520.backup.log"
+  },
+  {
+    "from": "vivado_project\\validate_acx750_full_55700.backup.jou",
+    "to": "vivado_project\\logs\\validate_acx750_full_55700.backup.jou"
+  },
+  {
+    "from": "vivado_project\\validate_acx750_full_55700.backup.log",
+    "to": "vivado_project\\logs\\validate_acx750_full_55700.backup.log"
+  },
+  {
+    "from": "vivado_project\\validate_acx750_full_console.log",
+    "to": "vivado_project\\logs\\validate_acx750_full_console.log"
+  },
+  {
+    "from": "vivado_project\\validate_project.tcl",
+    "to": "vivado_project\\scripts\\validate_project.tcl"
+  },
+  {
+    "from": "vivado_project\\vivado.jou",
+    "to": "vivado_project\\logs\\vivado.jou"
+  },
+  {
+    "from": "vivado_project\\vivado.log",
+    "to": "vivado_project\\logs\\vivado.log"
+  },
+  {
+    "from": "vivado_project\\vivado_43448.backup.jou",
+    "to": "vivado_project\\logs\\vivado_43448.backup.jou"
+  },
+  {
+    "from": "vivado_project\\vivado_43448.backup.log",
+    "to": "vivado_project\\logs\\vivado_43448.backup.log"
+  },
+  {
+    "from": "vivado_project\\vivado_46488.backup.jou",
+    "to": "vivado_project\\logs\\vivado_46488.backup.jou"
+  },
+  {
+    "from": "vivado_project\\vivado_46488.backup.log",
+    "to": "vivado_project\\logs\\vivado_46488.backup.log"
+  },
+  {
+    "from": "C:\\Users\\ASUS\\Desktop\\FPGA\\mid360_5s_20260918_210931_079",
+    "to": "sample\\radar\\mid360_5s_20260918_210931_079"
+  },
+  {
+    "from": "C:\\Users\\ASUS\\Desktop\\FPGA\\mid360_5s_20260918_211050_495",
+    "to": "sample\\radar\\mid360_5s_20260918_211050_495"
+  },
+  {
+    "from": "C:\\Users\\ASUS\\Desktop\\FPGA\\mid360_5s_20260918_212927_111",
+    "to": "sample\\radar\\mid360_5s_20260918_212927_111"
+  },
+  {
+    "from": "C:\\Users\\ASUS\\Desktop\\FPGA\\mid360_5s_20260918_213044_832",
+    "to": "sample\\radar\\mid360_5s_20260918_213044_832"
+  },
+  {
+    "from": "C:\\Users\\ASUS\\Desktop\\FPGA\\mid360_5s_20260918_213613_518",
+    "to": "sample\\radar\\mid360_5s_20260918_213613_518"
+  },
+  {
+    "from": "C:\\Users\\ASUS\\Desktop\\FPGA\\mid360_5s_20260918_214347_533",
+    "to": "sample\\radar\\mid360_5s_20260918_214347_533"
+  },
+  {
+    "from": "C:\\Users\\ASUS\\Desktop\\FPGA\\mid360_5s_20260918_214910_279",
+    "to": "sample\\radar\\mid360_5s_20260918_214910_279"
+  },
+  {
+    "from": "C:\\Users\\ASUS\\Desktop\\FPGA\\mid360_5s_20260918_215126_469",
+    "to": "sample\\radar\\mid360_5s_20260918_215126_469"
+  },
+  {
+    "from": "C:\\Users\\ASUS\\Desktop\\FPGA\\mid360_5s_20260918_215454_379",
+    "to": "sample\\radar\\mid360_5s_20260918_215454_379"
+  },
+  {
+    "from": "旧项目/2026-10-01_目录整理/fpga_acx750_full/docs",
+    "to": "routine/acx750_full_docs"
+  }
+]

@@ -1,0 +1,19 @@
+# Vivado and generated files
+**/.Xil/
+**/*.cache/
+**/*.runs/
+**/*.gen/
+**/*.hw/
+**/*.ip_user_files/
+**/*.sim/
+**/__pycache__/
+*.bit
+*.ltx
+*.dcp
+*.wdb
+*.jou
+*.log
+*.rpt
+*.xsa
+*.elf
+*.pyc

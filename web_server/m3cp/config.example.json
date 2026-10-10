@@ -1,0 +1,45 @@
+{
+  "bind": "10.42.0.1",
+  "ports": {
+    "1": 46101,
+    "2": 46102,
+    "3": 46103,
+    "4": 46104
+  },
+  "web_bind": "0.0.0.0",
+  "web_port": 8765,
+  "record_dir": "../sample/sessions_m3cp",
+  "segment_seconds": 60,
+  "segment_bytes": 268435456,
+  "disk_reserve_bytes": 1073741824,
+  "camera_rotation": 0,
+  "map": {
+    "extrinsic_valid": false,
+    "rotation": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "translation_mm": [
+      0,
+      0,
+      0
+    ],
+    "voxel_mm": 50,
+    "radius_mm": 12000,
+    "max_points": 200000,
+    "pose_tolerance_us": 50000
+  }
+}

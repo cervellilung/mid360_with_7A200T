@@ -1,0 +1,558 @@
+{
+  "date": "2026-10-03",
+  "before_markdown": 146,
+  "after_markdown": 18,
+  "backup": "旧项目/文档整理_20261003_112615/docs_before_merge.zip",
+  "protected_unchanged": {
+    "docs/LONG_RUNNING_ISSUES.md": "0f2a5d1e3801c9e99c187760e679c1458332d178a5f47ae54ba68dff5608d496",
+    "docs/vivado_project/source_snapshot/mid360_pc_fpga/fpga_ac880/sensor_capture_linux/LONG_RUNNING_ISSUES.md": "60c7fc7bbd540061b4660630a96667d8a9bd6f092d2fc82fb8087f8fa471a2d1",
+    "docs/vivado_project/source_snapshot/mid360_pc_fpga/fpga_ac880/sensor_perception_ar/LONG_RUNNING_ISSUES.md": "55cd2a699c3838c87a1210e3c60bae91bb00eb9dcf473c1a72ad202ca52deb89",
+    "docs/旧项目/2026-10-01_目录整理/fpga_ac880/sensor_capture_linux/LONG_RUNNING_ISSUES.md": "60c7fc7bbd540061b4660630a96667d8a9bd6f092d2fc82fb8087f8fa471a2d1",
+    "docs/旧项目/2026-10-01_目录整理/fpga_ac880/sensor_perception_ar/LONG_RUNNING_ISSUES.md": "55cd2a699c3838c87a1210e3c60bae91bb00eb9dcf473c1a72ad202ca52deb89",
+    "docs/旧项目/fpga_ac880/sensor_capture_ps/LONG_RUNNING_ISSUES.md": "75f89bdafe0cf3d119fdefb8a789cb52243e52f5316a6f9aa376384046cdbde3",
+    "docs/项目总交接.md": "22c2fc741f298bb4c11ff38973c319f9e2ba6a770a99f93b6eb52f44bb5071a7"
+  },
+  "duplicates_removed": 43,
+  "mapping": {
+    "docs/AC880继续修复交接_2026-10-03.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-001",
+      "original_sha256": "b6de0ba8d71fab29919869a20eb8ac086922c79f1fe6baa1b71507e715efd640"
+    },
+    "docs/AC880资源与时序优化_2026-10-02.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-002",
+      "original_sha256": "1a3e7a9dc1018cdc8f1a98a5489f7d4a012e35769a06975e5d74320faa2500c2"
+    },
+    "docs/ACX750待办清单.md": {
+      "target": "docs/01_项目方案与联调指南.md#doc-001",
+      "original_sha256": "f175ef846a6900b4bf8851d92841da4f251918a6e0d27a63f8ca7e743621e233"
+    },
+    "docs/ACX750通信版HDMI离线改造_2026-10-01.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-003",
+      "original_sha256": "7a4e4f0f8a8f848b14f461ca7fded4743eb9d71a62ce9c70768bdfe342942193"
+    },
+    "docs/ACX750通信版上板记录_2026-10-01.md": {
+      "target": "docs/03_上板验证与采集记录.md#doc-001",
+      "original_sha256": "886dde3a6195ca8aa7d3af3994bdcac6cef3ee81b7bb75392962b40313d23e26"
+    },
+    "docs/AI_HANDOFF.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-001",
+      "original_sha256": "f34e294e4f5c95003a88d6a1a0cc6cd0460528b1bebe4296d62fbe27980621bc"
+    },
+    "docs/FPGA与嵌入式桌面开发规范.md": {
+      "target": "docs/07_开发工具与规范.md#doc-001",
+      "original_sha256": "6fd5a0db3890ac595b912532c17a5a91fe62aa67bd1120dac1aa942eaf1cd08c"
+    },
+    "docs/Full存储结构优化_2026-10-02.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-004",
+      "original_sha256": "151cd1e83ce9faf6ee1943c8beff51c31977460b9650418f781589b8da914a28"
+    },
+    "docs/HDMI工程标准结构整理_2026-10-02.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-005",
+      "original_sha256": "0ecb9d54f8dc7f3fcf2a725c60199b36cb721b468ddb54dbd12fa6ba04e16089"
+    },
+    "docs/HDMI迁移交接_2026-10-01.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-006",
+      "original_sha256": "b01def3ad0206721a33d5ba695c28575e9bf64fcf94c1979649d9cc3cdec0f74"
+    },
+    "docs/LAST_SESSION_SUMMARY.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-002",
+      "original_sha256": "e42ab3d11d6683e3af41c2be5be9c885cf960b22433a4087878f9ec0f52b2362"
+    },
+    "docs/MIGRATION_HANDOFF.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-007",
+      "original_sha256": "98d2584adaf647ffff1d99cff6a67ffb327aa4ea76b82cc7f04bc0c8cc3facc8"
+    },
+    "docs/PROJECT_STATUS.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-003",
+      "original_sha256": "c5abcbdc395e8756bb6bce9b105f84694b3beec23e91547be94b012477a00906"
+    },
+    "docs/results/delegations/20260923T055313Z_pc-ar-todo/result.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-004",
+      "original_sha256": "5c88d043b3afc5af9e5ed03aa4999e258f53b80f6a797fe5e675161958d99247"
+    },
+    "docs/results/delegations/20260923T085009Z_mid-360-ac880-zynq-ps-udp-pl-ov5640-/result.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-005",
+      "original_sha256": "0a2dfd46504145a6a2b13f16e33698e2186c9e620dd519c2505d6490b9c82e59"
+    },
+    "docs/results/delegations/20260923T093358Z_ac880-xc7z020-zynq-ps-gem0-lwip-udp-/result.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-006",
+      "original_sha256": "7ec41dc2ddba881a7a1345db122684db270b0f038e020ff20b3869aab174a029"
+    },
+    "docs/Route_Design专项审计_2026-10-01.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-008",
+      "original_sha256": "e3da28e59751c992170d8a19782587f49788cd2d2fb35525c6bca442688e0efe"
+    },
+    "docs/routine/acx750_full_docs/asset_inventory_880.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-001",
+      "original_sha256": "968b3877d7cbf6b3b1fea3ed66662496b1b622602df07e3e6e7804e49a8bea3b"
+    },
+    "docs/routine/acx750_full_docs/bringup_checklist.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-002",
+      "original_sha256": "4465746abeddcd37138eaf33acb2ee7f627d66798fd27e2099fb7a9b3464a187"
+    },
+    "docs/routine/acx750_full_docs/chassis_750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-003",
+      "original_sha256": "a994138b9e16349b253a0e111eeb20774f0f602044d74399325b69fb2e2ea099"
+    },
+    "docs/routine/acx750_full_docs/control_plane_750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-004",
+      "original_sha256": "a80950b4e5e2e8d76765423c926a97aad5a3d50511a77d3958faa0f7dce61401"
+    },
+    "docs/routine/acx750_full_docs/final_status_2026-10-01.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-005",
+      "original_sha256": "e719e1dbb8eacf82896c064407f63e32f2997d9c9bcffc40e3eee7c7ada53c9f"
+    },
+    "docs/routine/acx750_full_docs/known_gaps.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-006",
+      "original_sha256": "95c2ddecc989cc5a4e3a7bf057bf784fcae2811915b5e4c100e3720db4b7ea9c"
+    },
+    "docs/routine/acx750_full_docs/m3tl_full_tx_750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-007",
+      "original_sha256": "e5d13e9f3bf3b5969ce17753b71d858ca649f85b97725490577d84768cac1fbb"
+    },
+    "docs/routine/acx750_full_docs/m3tl_targets_750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-008",
+      "original_sha256": "cd6c0316fe56f8c5f265f69b70ad17eecdef0444021d402a4260adca49497580"
+    },
+    "docs/routine/acx750_full_docs/migration_ac880_to_acx750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-009",
+      "original_sha256": "bd00a252f587e661f4133074a8ff13aadb0eb7a89f6571531ef4dbd7c898bda5"
+    },
+    "docs/routine/acx750_full_docs/pin_hunt_uart_gpio.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-010",
+      "original_sha256": "918623ef7d92923f3d84853d5121fd2e4eb4d07a5b28b94f23e76fba4dfe2404"
+    },
+    "docs/routine/acx750_full_docs/pinout_acx750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-011",
+      "original_sha256": "18c1e302d736e3a32ec06dd69ae1646e093e44b8415a6dc35e65172d86a9f7f9"
+    },
+    "docs/routine/acx750_full_docs/ported_perception_modules.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-012",
+      "original_sha256": "bb2273eb034562a3691ecee4aa93e91119ea6ea32ad42ae5ae673979478280cb"
+    },
+    "docs/routine/acx750_full_docs/recon_880_perception.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-013",
+      "original_sha256": "51bcd7f81e4040debd11e1645359c7abc53470c3e7c7a98ba4a5b7cebe88b650"
+    },
+    "docs/routine/acx750_full_docs/recon_880_top.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-014",
+      "original_sha256": "7c63217f6064cce1702a9d84cb9ed4909f2cec3088fe5cb39c026af06dfe97ee"
+    },
+    "docs/routine/acx750_full_docs/udp_rx_750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-015",
+      "original_sha256": "d43c12c658150082eb63b80f5a4b24ee4051957ae6db6630b32d19c2d73c74f9"
+    },
+    "docs/routine/acx750_full_docs/vendor_sources.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-016",
+      "original_sha256": "31d4980f5e7df63828c98bae8f1bf9cc17ddd1f0b5e2d171a0d30cd75d4cc65d"
+    },
+    "docs/routine/acx750_full_docs/video_pipeline_750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-017",
+      "original_sha256": "715a9c3504fae061e139d485daa1b5a461f5df81c9de3c8f62ef74ac1231da2c"
+    },
+    "docs/routine/references/README.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-018",
+      "original_sha256": "dafc4294347eb6c5ca645d2c6210643a12c5c404febc2f656cc2f64a24536a6f"
+    },
+    "docs/tools/README_GLM_DELEGATE.md": {
+      "target": "docs/07_开发工具与规范.md#doc-002",
+      "original_sha256": "91389eac3e8920663d73a96d30b08df1e61b57432c0bb84c181d4d067ac2bcf6"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750/constraints/README.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-019",
+      "original_sha256": "09b53f334bd916b2bff575d44d4791aeba38cf52b95f2d9c2fe870d6bf2959c3"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750/constraints/REVIEW.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-020",
+      "original_sha256": "f7d8f672f1ae02bb1c5fb9f1db365ef6d4a24639f6c5abf6be8435d410552fef"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750/docs/bringup_checklist.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-021",
+      "original_sha256": "6beb7c8bb4641fb640a307abc5902c721c1c1e533f4fd65388784c6ede866df8"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750/docs/known_gaps.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-022",
+      "original_sha256": "1aaa402b45590885df12554f32667ff5adea44c3c50fb944133f8bb3c1116f48"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750/docs/migration_ac880_to_acx750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-009",
+      "original_sha256": "bd00a252f587e661f4133074a8ff13aadb0eb7a89f6571531ef4dbd7c898bda5"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750/docs/pinout_acx750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-023",
+      "original_sha256": "cf98206c823e34a181479d272a85bf354dfb3ee29f6b7be92be0c51cd5e20765"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750/docs/vendor_sources.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-016",
+      "original_sha256": "31d4980f5e7df63828c98bae8f1bf9cc17ddd1f0b5e2d171a0d30cd75d4cc65d"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750/host/README.md": {
+      "target": "docs/05_上位机与用户界面.md#doc-001",
+      "original_sha256": "91efdb45f74bf6e9767fb498990a8b4dc252ae98a513e03794c7801b933ad282"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750/README.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-024",
+      "original_sha256": "0319af908844b2fb6818af9da3dd91046ce3ac8bafd6408f0d5e755a4422b1b7"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750/scripts/README.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-009",
+      "original_sha256": "6ea3c2961e7d67039e13a8bbf97e2fe0b2a8aa52e0031c043f2d8a922c46b960"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750/sim/README.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-010",
+      "original_sha256": "5254be4bbcf991af8d132796d2bec63d5428de3712701454b654f02d406fde67"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/constraints/README.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-025",
+      "original_sha256": "ed1ac48eebfdb82ee31e3db1d5bcfd62e529252d937638936d1694a5fb19dc1e"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/constraints/REVIEW.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-026",
+      "original_sha256": "f3526baf7b3d2c80c96368c6039e2d6714c89fbd6b06e353bfe225863f0a8230"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/asset_inventory_880.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-001",
+      "original_sha256": "968b3877d7cbf6b3b1fea3ed66662496b1b622602df07e3e6e7804e49a8bea3b"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/bringup_checklist.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-002",
+      "original_sha256": "4465746abeddcd37138eaf33acb2ee7f627d66798fd27e2099fb7a9b3464a187"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/chassis_750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-003",
+      "original_sha256": "a994138b9e16349b253a0e111eeb20774f0f602044d74399325b69fb2e2ea099"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/control_plane_750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-004",
+      "original_sha256": "a80950b4e5e2e8d76765423c926a97aad5a3d50511a77d3958faa0f7dce61401"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/final_status_2026-10-01.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-005",
+      "original_sha256": "e719e1dbb8eacf82896c064407f63e32f2997d9c9bcffc40e3eee7c7ada53c9f"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/known_gaps.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-006",
+      "original_sha256": "95c2ddecc989cc5a4e3a7bf057bf784fcae2811915b5e4c100e3720db4b7ea9c"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/m3tl_full_tx_750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-007",
+      "original_sha256": "e5d13e9f3bf3b5969ce17753b71d858ca649f85b97725490577d84768cac1fbb"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/m3tl_targets_750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-008",
+      "original_sha256": "cd6c0316fe56f8c5f265f69b70ad17eecdef0444021d402a4260adca49497580"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/migration_ac880_to_acx750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-009",
+      "original_sha256": "bd00a252f587e661f4133074a8ff13aadb0eb7a89f6571531ef4dbd7c898bda5"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/pin_hunt_uart_gpio.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-010",
+      "original_sha256": "918623ef7d92923f3d84853d5121fd2e4eb4d07a5b28b94f23e76fba4dfe2404"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/pinout_acx750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-011",
+      "original_sha256": "18c1e302d736e3a32ec06dd69ae1646e093e44b8415a6dc35e65172d86a9f7f9"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/ported_perception_modules.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-012",
+      "original_sha256": "bb2273eb034562a3691ecee4aa93e91119ea6ea32ad42ae5ae673979478280cb"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/recon_880_perception.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-013",
+      "original_sha256": "51bcd7f81e4040debd11e1645359c7abc53470c3e7c7a98ba4a5b7cebe88b650"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/recon_880_top.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-014",
+      "original_sha256": "7c63217f6064cce1702a9d84cb9ed4909f2cec3088fe5cb39c026af06dfe97ee"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/udp_rx_750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-015",
+      "original_sha256": "d43c12c658150082eb63b80f5a4b24ee4051957ae6db6630b32d19c2d73c74f9"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/vendor_sources.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-016",
+      "original_sha256": "31d4980f5e7df63828c98bae8f1bf9cc17ddd1f0b5e2d171a0d30cd75d4cc65d"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/docs/video_pipeline_750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-017",
+      "original_sha256": "715a9c3504fae061e139d485daa1b5a461f5df81c9de3c8f62ef74ac1231da2c"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/host/README.md": {
+      "target": "docs/05_上位机与用户界面.md#doc-002",
+      "original_sha256": "c9d1db8e11a63ceec98529a7c5b7d7488ae110f3bd6ffe68afa8447d5a4e28e5"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/PROJECT_HANDOFF.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-027",
+      "original_sha256": "aa3fce31623e3062fcba98f97476560657b26c2a3694459c81c6c6872012926d"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/README.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-028",
+      "original_sha256": "f955025771509bd668581414155f8724e2eb88bb3cbd98a1bdae5f155b3e2122"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/scripts/README.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-011",
+      "original_sha256": "b60d77547653d9e67383fadfe15c1b78b7dc34ffe50fe0960d414aa0e527e86f"
+    },
+    "docs/vivado_project/source_snapshot/fpga_acx750_full/sim/README.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-012",
+      "original_sha256": "7f4c8aea3e0177f814e88f8b06866a501f0ec5ea7ca7005cb73eea23b7dbaf13"
+    },
+    "docs/vivado_project/source_snapshot/mid360_pc_fpga/fpga_ac880/sensor_capture_linux/BOARD_VALIDATION_STATUS.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-007",
+      "original_sha256": "9583e4be49bfafc53f95363d076a93e55e5d7d11cfc6375819f0e0b7c1c27070"
+    },
+    "docs/vivado_project/source_snapshot/mid360_pc_fpga/fpga_ac880/sensor_capture_linux/CAMERA_MOUNT_NOTES.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-008",
+      "original_sha256": "1ba963ac2115c62d0ee777dd08247034d693509b3c767f00170a93529e1261ef"
+    },
+    "docs/vivado_project/source_snapshot/mid360_pc_fpga/fpga_ac880/sensor_capture_linux/PROJECT_HANDOFF.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-009",
+      "original_sha256": "7dd4ad8e5e1ebc3a0d1c7769e937e988f7b36bf72725c23add9fb84da7146dfd"
+    },
+    "docs/vivado_project/source_snapshot/mid360_pc_fpga/fpga_ac880/sensor_capture_linux/README.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-010",
+      "original_sha256": "e06dcd2527e7d9b377e347e4db95349c1bf4cd6663f0c5a7f27844e030bf07c7"
+    },
+    "docs/vivado_project/source_snapshot/mid360_pc_fpga/fpga_ac880/sensor_perception_ar/BOARD_VALIDATION_STATUS.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-011",
+      "original_sha256": "885fe641ad354e449c013457c6cc782048e10259705022028ad49c2ba996a28c"
+    },
+    "docs/vivado_project/source_snapshot/mid360_pc_fpga/fpga_ac880/sensor_perception_ar/PROJECT_HANDOFF.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-012",
+      "original_sha256": "000f7766c971227114ef0177a7693f86790a5aff7c3ab3a634ad8462c864920b"
+    },
+    "docs/vivado_project/source_snapshot/mid360_pc_fpga/fpga_ac880/sensor_perception_ar/PROTOCOL.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-013",
+      "original_sha256": "cf005ca54f3545f2bb99b06c28608bb5b5ededa4e8bb84bf987323dc64b1f291"
+    },
+    "docs/vivado_project/source_snapshot/mid360_pc_fpga/fpga_ac880/sensor_perception_ar/README.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-014",
+      "original_sha256": "56659ad146342f53802f2fa6bff1719d8331abae3f4f1af3abe41b1d2f3f687c"
+    },
+    "docs/web_server/car_showcase/README.md": {
+      "target": "docs/05_上位机与用户界面.md#doc-003",
+      "original_sha256": "df7ca799ebe9ab97235883701c121fb8ea3565f229d4baddb171e4f988af14bd"
+    },
+    "docs/web_server/README.md": {
+      "target": "docs/05_上位机与用户界面.md#doc-002",
+      "original_sha256": "c9d1db8e11a63ceec98529a7c5b7d7488ae110f3bd6ffe68afa8447d5a4e28e5"
+    },
+    "docs/上板逐项测试记录_2026-10-02.md": {
+      "target": "docs/03_上板验证与采集记录.md#doc-002",
+      "original_sha256": "bf45e60766463a04e65f318e114d78e5837cbee1932bd63b3c0b4f9bb1aa76ec"
+    },
+    "docs/下一步工作计划_2026-10-02.md": {
+      "target": "docs/01_项目方案与联调指南.md#doc-002",
+      "original_sha256": "d08612912a1171a7d66b7b8ae608876c5e57af4102e1ecb7415f82cfb6e2ca1a"
+    },
+    "docs/千兆网口RX修复_2026-10-02.md": {
+      "target": "docs/03_上板验证与采集记录.md#doc-003",
+      "original_sha256": "6e3540b76fe49910c3b621c858aa23c13b303ffd2bc2604b4c60ba065159165d"
+    },
+    "docs/厂商基线网口重建_2026-10-02.md": {
+      "target": "docs/03_上板验证与采集记录.md#doc-004",
+      "original_sha256": "00fddd3a2aab01651e7a39cd3bbb1379617f4e03bd07675633950a4f9145e7b2"
+    },
+    "docs/历史根目录说明.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-015",
+      "original_sha256": "5beb03261e844c51cad6eb63d44717f51246e42faa24d833fdc62cbcdb8498b0"
+    },
+    "docs/原始雷达转发录制_2026-10-03.md": {
+      "target": "docs/03_上板验证与采集记录.md#doc-005",
+      "original_sha256": "3538252085709743dab820943eb134f9aa186ac73b4eea4029d5c9fd5e5d639b"
+    },
+    "docs/双工程HDMI候选bit验收_2026-10-02.md": {
+      "target": "docs/03_上板验证与采集记录.md#doc-006",
+      "original_sha256": "3e63da1a75ea96dc34e1f8f3cc7fa0d8ec0cb0ad9bb68649906fbd86cd1e118f"
+    },
+    "docs/双工程HDMI链路测试_2026-10-01.md": {
+      "target": "docs/03_上板验证与采集记录.md#doc-007",
+      "original_sha256": "cf5b135e220992bcadc1ba227cfe4e7d1a2cda4ac6e118531f0309f9b1d86159"
+    },
+    "docs/存储结构修复交接_2026-10-01.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-013",
+      "original_sha256": "3696b498bf70076c62127ad0f8624a4453c6bab71983bfb4389e0349b721ca81"
+    },
+    "docs/当前项目方案_2026-09-29.md": {
+      "target": "docs/01_项目方案与联调指南.md#doc-003",
+      "original_sha256": "e23da237934045f3494c300c4f38d47a3f55a74a8171ff9db042312c9d58dd0a"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_ac880/README.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-016",
+      "original_sha256": "f8e65ce15147ef72e30942880ceb54a30816a1704ba1bf548ec9d9650c0df2d9"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_ac880/sensor_capture_linux/BOARD_VALIDATION_STATUS.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-007",
+      "original_sha256": "9583e4be49bfafc53f95363d076a93e55e5d7d11cfc6375819f0e0b7c1c27070"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_ac880/sensor_capture_linux/CAMERA_MOUNT_NOTES.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-008",
+      "original_sha256": "1ba963ac2115c62d0ee777dd08247034d693509b3c767f00170a93529e1261ef"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_ac880/sensor_capture_linux/PROJECT_HANDOFF.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-009",
+      "original_sha256": "7dd4ad8e5e1ebc3a0d1c7769e937e988f7b36bf72725c23add9fb84da7146dfd"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_ac880/sensor_capture_linux/README.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-010",
+      "original_sha256": "e06dcd2527e7d9b377e347e4db95349c1bf4cd6663f0c5a7f27844e030bf07c7"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_ac880/sensor_perception_ar/BOARD_VALIDATION_STATUS.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-011",
+      "original_sha256": "885fe641ad354e449c013457c6cc782048e10259705022028ad49c2ba996a28c"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_ac880/sensor_perception_ar/PROJECT_HANDOFF.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-012",
+      "original_sha256": "000f7766c971227114ef0177a7693f86790a5aff7c3ab3a634ad8462c864920b"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_ac880/sensor_perception_ar/PROTOCOL.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-013",
+      "original_sha256": "cf005ca54f3545f2bb99b06c28608bb5b5ededa4e8bb84bf987323dc64b1f291"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_ac880/sensor_perception_ar/README.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-014",
+      "original_sha256": "56659ad146342f53802f2fa6bff1719d8331abae3f4f1af3abe41b1d2f3f687c"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_ac880/sw/telemetry/README.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-017",
+      "original_sha256": "df00479b6461d2b5b16f6cb009a2be06f4801993567decc7469ceaba64bb750e"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750/constraints/README.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-019",
+      "original_sha256": "09b53f334bd916b2bff575d44d4791aeba38cf52b95f2d9c2fe870d6bf2959c3"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750/constraints/REVIEW.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-020",
+      "original_sha256": "f7d8f672f1ae02bb1c5fb9f1db365ef6d4a24639f6c5abf6be8435d410552fef"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750/docs/bringup_checklist.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-021",
+      "original_sha256": "6beb7c8bb4641fb640a307abc5902c721c1c1e533f4fd65388784c6ede866df8"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750/docs/known_gaps.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-022",
+      "original_sha256": "1aaa402b45590885df12554f32667ff5adea44c3c50fb944133f8bb3c1116f48"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750/docs/migration_ac880_to_acx750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-009",
+      "original_sha256": "bd00a252f587e661f4133074a8ff13aadb0eb7a89f6571531ef4dbd7c898bda5"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750/docs/pinout_acx750.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-023",
+      "original_sha256": "cf98206c823e34a181479d272a85bf354dfb3ee29f6b7be92be0c51cd5e20765"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750/docs/vendor_sources.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-016",
+      "original_sha256": "31d4980f5e7df63828c98bae8f1bf9cc17ddd1f0b5e2d171a0d30cd75d4cc65d"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750/host/README.md": {
+      "target": "docs/05_上位机与用户界面.md#doc-001",
+      "original_sha256": "91efdb45f74bf6e9767fb498990a8b4dc252ae98a513e03794c7801b933ad282"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750/README.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-018",
+      "original_sha256": "a35489919aa51591a0c57334abcf5f6ed50eb57ac522d9cdbfc4e69e17b0b549"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750/scripts/README.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-009",
+      "original_sha256": "6ea3c2961e7d67039e13a8bbf97e2fe0b2a8aa52e0031c043f2d8a922c46b960"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750/sim/README.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-010",
+      "original_sha256": "5254be4bbcf991af8d132796d2bec63d5428de3712701454b654f02d406fde67"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750_full/constraints/README.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-025",
+      "original_sha256": "ed1ac48eebfdb82ee31e3db1d5bcfd62e529252d937638936d1694a5fb19dc1e"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750_full/constraints/REVIEW.md": {
+      "target": "docs/02_硬件接口与协议.md#doc-026",
+      "original_sha256": "f3526baf7b3d2c80c96368c6039e2d6714c89fbd6b06e353bfe225863f0a8230"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750_full/PROJECT_HANDOFF.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-019",
+      "original_sha256": "0c37d55eb246809872ebe8c5ea9e15773d2caea4cd8c75d31314c68c4a046ed0"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750_full/README.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-020",
+      "original_sha256": "24fdd8ec6108a52d80a231d4e59842b44fb2dc83e77b74070f0ca30104364e5d"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750_full/scripts/README.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-011",
+      "original_sha256": "b60d77547653d9e67383fadfe15c1b78b7dc34ffe50fe0960d414aa0e527e86f"
+    },
+    "docs/旧项目/2026-10-01_目录整理/fpga_acx750_full/sim/README.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-012",
+      "original_sha256": "7f4c8aea3e0177f814e88f8b06866a501f0ec5ea7ca7005cb73eea23b7dbaf13"
+    },
+    "docs/旧项目/fpga_ac880/camera_tft_chassis/README.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-021",
+      "original_sha256": "8374dbd293997a103d406eb68b1e23182d98b862ff74592d94034045cf5fd84c"
+    },
+    "docs/旧项目/fpga_ac880/pl_eth_mid360/MID360_STARTUP_POLICY.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-022",
+      "original_sha256": "62beefb7a64e16e962c51fcb207db9102f93d433f8d4f39764e64bf03fe330fe"
+    },
+    "docs/旧项目/fpga_ac880/pl_eth_mid360/README.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-023",
+      "original_sha256": "9718f3fa497d787c26a96492ba53e45be76af31e90c5d2dfca25e2d8e4ea47ae"
+    },
+    "docs/旧项目/fpga_ac880/pl_mid360_point_parser/MID360_STARTUP_POLICY.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-022",
+      "original_sha256": "62beefb7a64e16e962c51fcb207db9102f93d433f8d4f39764e64bf03fe330fe"
+    },
+    "docs/旧项目/fpga_ac880/pl_mid360_point_parser/README.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-024",
+      "original_sha256": "5fba793385d20ca3fb54469e65c7ba42b21ab06ea513bdc52fbc0fa3702baeea"
+    },
+    "docs/旧项目/fpga_ac880/ps_udp_heartbeat/README.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-025",
+      "original_sha256": "4ae9cc4fd0f692a0bdd3df743d2461744d159a3981326189cb084299925484f3"
+    },
+    "docs/旧项目/fpga_ac880/sensor_capture_ps/BOARD_VALIDATION_STATUS.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-026",
+      "original_sha256": "0871351a33db93e5f13a399768be3b7a2921313d2ec8ef10eeef04bb340f33fa"
+    },
+    "docs/旧项目/fpga_ac880/sensor_capture_ps/PROJECT_HANDOFF.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-027",
+      "original_sha256": "d11eb71d72932a70d3239af093f3de7abec9ae8a09ca10a3f86e695ae69ee4eb"
+    },
+    "docs/旧项目/fpga_ac880/sensor_capture_ps/README.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-028",
+      "original_sha256": "b086f741014313d58c4ca28ba4e06392058d86a8d03fb3edd483535835b14eba"
+    },
+    "docs/旧项目/fpga_ac880/sensor_capture_ps/REVIEW_SUMMARY.md": {
+      "target": "docs/06_历史方案与迁移记录.md#doc-029",
+      "original_sha256": "86d54265ed464744ad6bcab72aca29ce692abe7b9c41f2ecc1a11a42b9481d81"
+    },
+    "docs/时序修复归档_2026-10-01.md": {
+      "target": "docs/04_FPGA工程构建与优化.md#doc-014",
+      "original_sha256": "9a438e087748e6b7ebc4eed3218456a50cc595471b24375746b1f68c577afc51"
+    },
+    "docs/目录与材料索引说明.md": {
+      "target": "docs/01_项目方案与联调指南.md#doc-004",
+      "original_sha256": "ca1daad03a446d3271d1449ce5a3911f8e6d36ea0258b2c4576bf0a742f298d4"
+    },
+    "docs/相机屏幕排查_2026-10-03.md": {
+      "target": "docs/03_上板验证与采集记录.md#doc-008",
+      "original_sha256": "f43fa5a8d9a641ff778e9ff2db761ac6f12295b4c45a0394f2d8c0dfcc351a57"
+    },
+    "docs/系统联调架构_树莓派5.md": {
+      "target": "docs/01_项目方案与联调指南.md#doc-005",
+      "original_sha256": "3ad7c5ae21635ccfdfa0875febb9b8052a0844f49eb108d984956fba1966afd4"
+    },
+    "docs/编译监视器.md": {
+      "target": "docs/07_开发工具与规范.md#doc-003",
+      "original_sha256": "e2cd2d978d2e57881a652501b6456df341570b55e92d3f8847f74ed66014151c"
+    },
+    "docs/网口遥测MAC学习修复_2026-10-03.md": {
+      "target": "docs/03_上板验证与采集记录.md#doc-009",
+      "original_sha256": "91ecb455dfb76d9a0b1084c84c633e01bdd1e9718f8f705349eb51dc311f6f5a"
+    },
+    "docs/联调清单.md": {
+      "target": "docs/01_项目方案与联调指南.md#doc-006",
+      "original_sha256": "2d7949008c6d3684d5bdca7a68e3a55c608601ed644be3bffc4cb3d7376cffdd"
+    }
+  }
+}

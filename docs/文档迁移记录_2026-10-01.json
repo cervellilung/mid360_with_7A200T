@@ -1,0 +1,438 @@
+[
+  {
+    "from": "results\\delegations\\20260923T055313Z_pc-ar-todo\\result.md",
+    "to": "docs\\results\\delegations\\20260923T055313Z_pc-ar-todo\\result.md"
+  },
+  {
+    "from": "results\\delegations\\20260923T085009Z_mid-360-ac880-zynq-ps-udp-pl-ov5640-\\result.md",
+    "to": "docs\\results\\delegations\\20260923T085009Z_mid-360-ac880-zynq-ps-udp-pl-ov5640-\\result.md"
+  },
+  {
+    "from": "results\\delegations\\20260923T093358Z_ac880-xc7z020-zynq-ps-gem0-lwip-udp-\\result.md",
+    "to": "docs\\results\\delegations\\20260923T093358Z_ac880-xc7z020-zynq-ps-gem0-lwip-udp-\\result.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\asset_inventory_880.md",
+    "to": "docs\\routine\\acx750_full_docs\\asset_inventory_880.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\bringup_checklist.md",
+    "to": "docs\\routine\\acx750_full_docs\\bringup_checklist.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\chassis_750.md",
+    "to": "docs\\routine\\acx750_full_docs\\chassis_750.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\control_plane_750.md",
+    "to": "docs\\routine\\acx750_full_docs\\control_plane_750.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\final_status_2026-10-01.md",
+    "to": "docs\\routine\\acx750_full_docs\\final_status_2026-10-01.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\known_gaps.md",
+    "to": "docs\\routine\\acx750_full_docs\\known_gaps.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\m3tl_full_tx_750.md",
+    "to": "docs\\routine\\acx750_full_docs\\m3tl_full_tx_750.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\m3tl_targets_750.md",
+    "to": "docs\\routine\\acx750_full_docs\\m3tl_targets_750.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\migration_ac880_to_acx750.md",
+    "to": "docs\\routine\\acx750_full_docs\\migration_ac880_to_acx750.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\pin_hunt_uart_gpio.md",
+    "to": "docs\\routine\\acx750_full_docs\\pin_hunt_uart_gpio.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\pinout_acx750.md",
+    "to": "docs\\routine\\acx750_full_docs\\pinout_acx750.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\ported_perception_modules.md",
+    "to": "docs\\routine\\acx750_full_docs\\ported_perception_modules.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\recon_880_perception.md",
+    "to": "docs\\routine\\acx750_full_docs\\recon_880_perception.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\recon_880_top.md",
+    "to": "docs\\routine\\acx750_full_docs\\recon_880_top.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\udp_rx_750.md",
+    "to": "docs\\routine\\acx750_full_docs\\udp_rx_750.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\vendor_sources.md",
+    "to": "docs\\routine\\acx750_full_docs\\vendor_sources.md"
+  },
+  {
+    "from": "routine\\acx750_full_docs\\video_pipeline_750.md",
+    "to": "docs\\routine\\acx750_full_docs\\video_pipeline_750.md"
+  },
+  {
+    "from": "routine\\references\\README.md",
+    "to": "docs\\routine\\references\\README.md"
+  },
+  {
+    "from": "tools\\README_GLM_DELEGATE.md",
+    "to": "docs\\tools\\README_GLM_DELEGATE.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750\\constraints\\README.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750\\constraints\\README.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750\\constraints\\REVIEW.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750\\constraints\\REVIEW.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750\\docs\\bringup_checklist.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750\\docs\\bringup_checklist.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750\\docs\\known_gaps.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750\\docs\\known_gaps.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750\\docs\\migration_ac880_to_acx750.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750\\docs\\migration_ac880_to_acx750.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750\\docs\\pinout_acx750.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750\\docs\\pinout_acx750.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750\\docs\\vendor_sources.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750\\docs\\vendor_sources.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750\\host\\README.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750\\host\\README.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750\\README.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750\\README.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750\\scripts\\README.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750\\scripts\\README.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750\\sim\\README.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750\\sim\\README.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\constraints\\README.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\constraints\\README.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\constraints\\REVIEW.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\constraints\\REVIEW.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\asset_inventory_880.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\asset_inventory_880.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\bringup_checklist.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\bringup_checklist.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\chassis_750.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\chassis_750.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\control_plane_750.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\control_plane_750.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\final_status_2026-10-01.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\final_status_2026-10-01.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\known_gaps.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\known_gaps.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\m3tl_full_tx_750.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\m3tl_full_tx_750.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\m3tl_targets_750.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\m3tl_targets_750.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\migration_ac880_to_acx750.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\migration_ac880_to_acx750.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\pin_hunt_uart_gpio.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\pin_hunt_uart_gpio.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\pinout_acx750.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\pinout_acx750.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\ported_perception_modules.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\ported_perception_modules.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\recon_880_perception.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\recon_880_perception.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\recon_880_top.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\recon_880_top.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\udp_rx_750.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\udp_rx_750.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\vendor_sources.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\vendor_sources.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\video_pipeline_750.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\docs\\video_pipeline_750.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\host\\README.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\host\\README.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\PROJECT_HANDOFF.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\PROJECT_HANDOFF.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\README.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\README.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\scripts\\README.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\scripts\\README.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\fpga_acx750_full\\sim\\README.md",
+    "to": "docs\\vivado_project\\source_snapshot\\fpga_acx750_full\\sim\\README.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_capture_linux\\BOARD_VALIDATION_STATUS.md",
+    "to": "docs\\vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_capture_linux\\BOARD_VALIDATION_STATUS.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_capture_linux\\CAMERA_MOUNT_NOTES.md",
+    "to": "docs\\vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_capture_linux\\CAMERA_MOUNT_NOTES.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_capture_linux\\LONG_RUNNING_ISSUES.md",
+    "to": "docs\\vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_capture_linux\\LONG_RUNNING_ISSUES.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_capture_linux\\PROJECT_HANDOFF.md",
+    "to": "docs\\vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_capture_linux\\PROJECT_HANDOFF.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_capture_linux\\README.md",
+    "to": "docs\\vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_capture_linux\\README.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_perception_ar\\BOARD_VALIDATION_STATUS.md",
+    "to": "docs\\vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_perception_ar\\BOARD_VALIDATION_STATUS.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_perception_ar\\LONG_RUNNING_ISSUES.md",
+    "to": "docs\\vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_perception_ar\\LONG_RUNNING_ISSUES.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_perception_ar\\PROJECT_HANDOFF.md",
+    "to": "docs\\vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_perception_ar\\PROJECT_HANDOFF.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_perception_ar\\PROTOCOL.md",
+    "to": "docs\\vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_perception_ar\\PROTOCOL.md"
+  },
+  {
+    "from": "vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_perception_ar\\README.md",
+    "to": "docs\\vivado_project\\source_snapshot\\mid360_pc_fpga\\fpga_ac880\\sensor_perception_ar\\README.md"
+  },
+  {
+    "from": "web_server\\car_showcase\\README.md",
+    "to": "docs\\web_server\\car_showcase\\README.md"
+  },
+  {
+    "from": "web_server\\README.md",
+    "to": "docs\\web_server\\README.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_ac880\\README.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_ac880\\README.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_capture_linux\\BOARD_VALIDATION_STATUS.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_capture_linux\\BOARD_VALIDATION_STATUS.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_capture_linux\\CAMERA_MOUNT_NOTES.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_capture_linux\\CAMERA_MOUNT_NOTES.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_capture_linux\\LONG_RUNNING_ISSUES.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_capture_linux\\LONG_RUNNING_ISSUES.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_capture_linux\\PROJECT_HANDOFF.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_capture_linux\\PROJECT_HANDOFF.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_capture_linux\\README.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_capture_linux\\README.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_perception_ar\\BOARD_VALIDATION_STATUS.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_perception_ar\\BOARD_VALIDATION_STATUS.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_perception_ar\\LONG_RUNNING_ISSUES.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_perception_ar\\LONG_RUNNING_ISSUES.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_perception_ar\\PROJECT_HANDOFF.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_perception_ar\\PROJECT_HANDOFF.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_perception_ar\\PROTOCOL.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_perception_ar\\PROTOCOL.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_perception_ar\\README.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_ac880\\sensor_perception_ar\\README.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_ac880\\sw\\telemetry\\README.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_ac880\\sw\\telemetry\\README.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750\\constraints\\README.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750\\constraints\\README.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750\\constraints\\REVIEW.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750\\constraints\\REVIEW.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750\\docs\\bringup_checklist.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750\\docs\\bringup_checklist.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750\\docs\\known_gaps.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750\\docs\\known_gaps.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750\\docs\\migration_ac880_to_acx750.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750\\docs\\migration_ac880_to_acx750.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750\\docs\\pinout_acx750.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750\\docs\\pinout_acx750.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750\\docs\\vendor_sources.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750\\docs\\vendor_sources.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750\\host\\README.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750\\host\\README.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750\\README.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750\\README.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750\\scripts\\README.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750\\scripts\\README.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750\\sim\\README.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750\\sim\\README.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750_full\\constraints\\README.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750_full\\constraints\\README.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750_full\\constraints\\REVIEW.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750_full\\constraints\\REVIEW.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750_full\\PROJECT_HANDOFF.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750_full\\PROJECT_HANDOFF.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750_full\\README.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750_full\\README.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750_full\\scripts\\README.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750_full\\scripts\\README.md"
+  },
+  {
+    "from": "旧项目\\2026-10-01_目录整理\\fpga_acx750_full\\sim\\README.md",
+    "to": "docs\\旧项目\\2026-10-01_目录整理\\fpga_acx750_full\\sim\\README.md"
+  },
+  {
+    "from": "旧项目\\fpga_ac880\\camera_tft_chassis\\README.md",
+    "to": "docs\\旧项目\\fpga_ac880\\camera_tft_chassis\\README.md"
+  },
+  {
+    "from": "旧项目\\fpga_ac880\\pl_eth_mid360\\MID360_STARTUP_POLICY.md",
+    "to": "docs\\旧项目\\fpga_ac880\\pl_eth_mid360\\MID360_STARTUP_POLICY.md"
+  },
+  {
+    "from": "旧项目\\fpga_ac880\\pl_eth_mid360\\README.md",
+    "to": "docs\\旧项目\\fpga_ac880\\pl_eth_mid360\\README.md"
+  },
+  {
+    "from": "旧项目\\fpga_ac880\\pl_mid360_point_parser\\MID360_STARTUP_POLICY.md",
+    "to": "docs\\旧项目\\fpga_ac880\\pl_mid360_point_parser\\MID360_STARTUP_POLICY.md"
+  },
+  {
+    "from": "旧项目\\fpga_ac880\\pl_mid360_point_parser\\README.md",
+    "to": "docs\\旧项目\\fpga_ac880\\pl_mid360_point_parser\\README.md"
+  },
+  {
+    "from": "旧项目\\fpga_ac880\\ps_udp_heartbeat\\README.md",
+    "to": "docs\\旧项目\\fpga_ac880\\ps_udp_heartbeat\\README.md"
+  },
+  {
+    "from": "旧项目\\fpga_ac880\\sensor_capture_ps\\BOARD_VALIDATION_STATUS.md",
+    "to": "docs\\旧项目\\fpga_ac880\\sensor_capture_ps\\BOARD_VALIDATION_STATUS.md"
+  },
+  {
+    "from": "旧项目\\fpga_ac880\\sensor_capture_ps\\LONG_RUNNING_ISSUES.md",
+    "to": "docs\\旧项目\\fpga_ac880\\sensor_capture_ps\\LONG_RUNNING_ISSUES.md"
+  },
+  {
+    "from": "旧项目\\fpga_ac880\\sensor_capture_ps\\PROJECT_HANDOFF.md",
+    "to": "docs\\旧项目\\fpga_ac880\\sensor_capture_ps\\PROJECT_HANDOFF.md"
+  },
+  {
+    "from": "旧项目\\fpga_ac880\\sensor_capture_ps\\README.md",
+    "to": "docs\\旧项目\\fpga_ac880\\sensor_capture_ps\\README.md"
+  },
+  {
+    "from": "旧项目\\fpga_ac880\\sensor_capture_ps\\REVIEW_SUMMARY.md",
+    "to": "docs\\旧项目\\fpga_ac880\\sensor_capture_ps\\REVIEW_SUMMARY.md"
+  }
+]

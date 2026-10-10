@@ -1,0 +1,20 @@
+{
+  "bind": "0.0.0.0",
+  "port": 46000,
+  "web_bind": "0.0.0.0",
+  "web_port": 8765,
+  "session_dir": "../sample/sessions_m3tl",
+  "session": null,
+  "record": true,
+  "grid_bitmap": true,
+  "_说明": {
+    "bind": "UDP 监听地址，板卡同网段时用 0.0.0.0 即可",
+    "port": "UDP 监听端口，与 PL 发送目标端口一致",
+    "web_bind": "网页服务监听地址，仅本机看可改成 127.0.0.1",
+    "web_port": "网页服务端口，浏览器访问 http://<树莓派IP>:8765/",
+    "session_dir": "会话根目录，实际落在 session_dir/<session>/",
+    "session": "会话名；命令行 --session 优先级更高，指定后才落盘",
+    "record": "是否允许落盘，false 时只接收不写文件",
+    "grid_bitmap": "栅格落盘是否附带 bitmap_b64（base64 位图）；false 时只落 occupied_count"
+  }
+}

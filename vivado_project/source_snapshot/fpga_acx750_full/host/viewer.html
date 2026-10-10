@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MID-360 · ACX750 遥测监视</title>
+<style>
+:root{font-family:"Microsoft YaHei",system-ui,sans-serif;color:#24354a;background:#eef2f6}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:#eaf0f6}
+header{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:#f9fbfd;border-bottom:1px solid #dce5ef}
+header h1{margin:0;font-size:20px}header small{display:block;color:#778ca1;margin-top:2px}
+main{display:grid;grid-template-columns:minmax(0,5fr) minmax(320px,3fr);gap:14px;padding:14px}
+.card{background:#fbfdff;border:1px solid #d9e4ee;border-radius:14px;box-shadow:0 6px 20px #607b9912;overflow:hidden}
+.card h2{margin:0;padding:12px 16px;font-size:14px;font-weight:700;border-bottom:1px solid #e6eef5;color:#3b566f}
+.body{padding:14px}
+canvas{width:100%;display:block;background:#f5f9fc;border-radius:8px}
+.lights{display:flex;flex-wrap:wrap;gap:10px}
+.light{display:flex;align-items:center;gap:7px;padding:8px 12px;border-radius:20px;background:#f0f4f8;font-size:13px}
+.dot{width:12px;height:12px;border-radius:50%;background:#c7d2dc}
+.dot.on{background:#28b57a;box-shadow:0 0 8px #28b57a88}.dot.off{background:#d98b3a}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{padding:6px 8px;text-align:left;border-bottom:1px solid #eef3f7;font-variant-numeric:tabular-nums}
+th{color:#6d8295;font-weight:600;background:#f7fafc}
+.bad{color:#c0392b;font-weight:700}.warn{color:#b7791f}
+.foot{padding:8px 16px;color:#8092a3;font-size:12px;border-top:1px solid #e6eef5}
+.targets{max-height:360px;overflow:auto}
+#stale{color:#c0392b;font-weight:700}#health{color:#2c7a5b}
+</style></head><body>
+<header>
+  <div><h1>MID-360 · ACX750 遥测监视</h1><small>PL → 以太网 UDP → 树莓派 · 低带宽结果</small></div>
+  <div><span id="health">等待数据…</span>　<span id="stale"></span></div>
+</header>
+<main>
+  <section class="card">
+    <h2>占据栅格俯视图（55 × 60）</h2>
+    <div class="body"><canvas id="grid" width="660" height="560"></canvas>
+      <div id="gridinfo" class="foot">等待栅格数据…</div></div>
+  </section>
+  <section class="card">
+    <h2>心跳状态</h2>
+    <div class="body">
+      <div class="lights" id="lights"></div>
+      <div id="hbtext" class="foot" style="border:0;padding:10px 0 0">—</div>
+    </div>
+  </section>
+  <section class="card">
+    <h2>目标框列表</h2>
+    <div class="body targets"><table id="targets"><thead><tr>
+      <th>id</th><th>最近(mm)</th><th>X(mm)</th><th>Y(mm)</th><th>Z(mm)</th></tr></thead><tbody></tbody></table>
+      <div id="targetnote" class="foot" style="border:0;padding:8px 0 0">等待目标数据…</div></div>
+  </section>
+  <section class="card">
+    <h2>通道统计（含序号缺口）</h2>
+    <div class="body"><table id="streams"><thead><tr>
+      <th>类型</th><th>好包</th><th>CRC坏</th><th>长度坏</th><th>缺口</th><th>最新序号</th><th>延迟(ms)</th></tr></thead>
+      <tbody></tbody></table></div>
+    <div class="foot" id="recon">—</div>
+  </section>
+</main>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const TYPE_NAMES={1:"心跳",2:"底盘",3:"目标",5:"栅格",6:"相机",7:"配置回读",unknown:"未知"};
+const LIGHTS=[
+  ["pll_locked","PLL 锁定"],["ddr3_calib_done","DDR3 校准"],["eth_link_up","以太网链路"],["cam_init_done","相机初始化"]
+];
+let lastCount=0;
+
+// 把 bitmap_hex 解成 Uint8Array
+function hexBytes(hex){const n=(hex||"").length>>1,out=new Uint8Array(n);for(let i=0;i<n;i++)out[i]=parseInt(hex.substr(i*2,2),16);return out}
+function bitAt(bits,i){return (bits[i>>3]>>(i&7))&1}
+
+function drawGrid(latest){
+  const cv=$("grid"),ctx=cv.getContext("2d"),w=cv.width,h=cv.height;
+  ctx.clearRect(0,0,w,h);ctx.fillStyle="#f5f9fc";ctx.fillRect(0,0,w,h);
+  const g=latest && latest["5"];
+  if(!g||!g.bitmap_hex){$("gridinfo").textContent="等待栅格数据…";return}
+  const rows=g.rows||55,cols=g.cols||60,bits=hexBytes(g.bitmap_hex);
+  const pad=12,cw=(w-2*pad)/cols,ch=(h-2*pad)/rows;
+  for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
+    const i=r*cols+c;
+    if(!bitAt(bits,i))continue;
+    ctx.fillStyle="#2b6cb0";ctx.fillRect(pad+c*cw,pad+r*ch,Math.max(1,cw-0.6),Math.max(1,ch-0.6));
+  }
+  $("gridinfo").textContent=`尺寸 ${rows}×${cols}　格边长 ${g.cell_mm} mm　占据格 ${g.occupied}　序号 ${g.seq}　延迟 ${g.age_ms} ms`;
+}
+
+function drawLights(latest){
+  const hb=latest && latest["1"],box=$("lights");box.innerHTML="";
+  for(const [key,label] of LIGHTS){
+    const on=hb?!!hb[key]:false;
+    const el=document.createElement("span");el.className="light";
+    el.innerHTML=`<span class="dot ${hb?(on?"on":"off"):""}"></span>${label}`;
+    box.appendChild(el);
+  }
+  $("hbtext").textContent=hb
+    ? `阶段 ${hb.stage}　运行 ${(hb.uptime_ms/1000).toFixed(1)} s　丢包计数 ${hb.drop_count}　序号 ${hb.seq}　延迟 ${hb.age_ms} ms`
+    : "暂无心跳";
+}
+
+function drawTargets(latest){
+  const t=latest && latest["3"],tbody=$("targets").querySelector("tbody");
+  tbody.innerHTML="";
+  if(!t){$("targetnote").textContent="等待目标数据…";return}
+  const list=t.targets||[];
+  for(const o of list){
+    const tr=document.createElement("tr");
+    tr.innerHTML=`<td>${o.id}</td><td>${o.nearest_mm}</td>
+      <td>${o.x_min}~${o.x_max}</td><td>${o.y_min}~${o.y_max}</td><td>${o.z_min}~${o.z_max}</td>`;
+    tbody.appendChild(tr);
+  }
+  $("targetnote").textContent=`共 ${t.count} 个目标${t.overflow?"（溢出）":""}　序号 ${t.seq}　延迟 ${t.age_ms} ms`;
+}
+
+function drawStreams(state){
+  const tbody=$("streams").querySelector("tbody");tbody.innerHTML="";
+  let gaps=0;
+  for(const key of ["1","2","3","5","6","7","unknown"]){
+    const s=state.streams[key];if(!s)continue;gaps+=s.missing||0;
+    const name=TYPE_NAMES[key]||key;
+    const tr=document.createElement("tr");
+    const crc=s.bad_crc?"bad":"";const miss=s.missing?"warn":"";
+    tr.innerHTML=`<td>${name}</td><td>${s.good}</td><td class="${crc}">${s.bad_crc}</td>
+      <td>${s.bad_length}</td><td class="${miss}">${s.missing}</td>
+      <td>${s.last_seq===null?"—":s.last_seq}</td><td>${s.age_ms===null?"—":s.age_ms}</td>`;
+    tbody.appendChild(tr);
+  }
+  lastCount=gaps;
+  $("recon").textContent=`总包 ${state.total_packets}　坏包 ${state.bad_packets}　未知类型 ${state.unknown_packets}　接收错误 ${state.recv_errors}　录制 ${state.recording}　会话 ${state.session||"—"}`;
+}
+
+async function poll(){
+  try{
+    const reply=await fetch("/api/state",{cache:"no-store"});
+    if(!reply.ok)throw new Error("HTTP "+reply.status);
+    const state=await reply.json();
+    $("health").textContent="已连接";
+    $("stale").textContent="";
+    drawGrid(state.latest);drawLights(state.latest);drawTargets(state.latest);drawStreams(state);
+  }catch(err){
+    $("stale").textContent="连接中断："+err.message;
+  }
+  setTimeout(poll,500);
+}
+poll();
+</script></body></html>
